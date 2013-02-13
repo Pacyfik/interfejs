@@ -7,8 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
 
-<%= yield %>
+    
+    <nav>
+        <ul>
+            <li>Profil</li>
+            <li>Wyszukaj</li>
+            <li>Lista filmów</li>
+            <li>Etykiety</li>
+            <li>Pomoc</li>
+            <li>Logowanie</li>        
+        </ul>
+    </nav>
+</header>
+
+
+<section>
+	<%= yield %>
+</section>
+
+<footer>
+<nav>
+        <ul>
+            <li>Profil</li>
+            <li>Wyszukaj</li>
+            <li>Lista filmów</li>
+            <li>Etykiety</li>
+            <li>Pomoc</li>
+            <li>Logowanie</li>        
+        </ul>
+    </nav>
+</footer>
+
 
 </body>
 </html>
