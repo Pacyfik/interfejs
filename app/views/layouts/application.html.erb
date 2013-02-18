@@ -9,12 +9,26 @@
 </head>
 <body>
 <header>
+
+    <section id="hist">
  
-    
+    <div id="hist_in">
+    	
+    	<div id="hist1">
+        	<p> HISTORIA KRYJĄCA SIĘ ZA STRONĄ HITCHKOT</p>
+            <br>
+	        <p><a href="#">schowaj opis</a></p>
+        </div>
+	    <div id="hist2"><span id="rog" ><%= image_tag 'rog.png' %> </span></div>
+    	<div id="hist3">Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</div>
+   	
+    </div>
+    </section>
+   
     <nav>
         <ul>
         	<li id="textlogo">HitchKot</li>
-			<li><img id="logo" src="img/logo.png" alt="logo"/></li>
+			<a href="#hist"><li> <span id="logo" ><%= image_tag 'logo2.png' %> </span></li></a>
             <li class="menu_symb" id="home"></li>
             <li class="menu_symb" id="profil"></li>
             <li class="menu_symb" id="wyszukaj"></li>
@@ -26,9 +40,10 @@
 </header>
 
 
-<section>
-	<%= yield %>
-</section>
+<article id="main">
+    <%= yield %>
+</article>
+<br><br><br>
 
 <footer>
 <nav>
