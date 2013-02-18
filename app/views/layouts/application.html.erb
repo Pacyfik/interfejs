@@ -2,22 +2,25 @@
 <html>
 <head>
   <title>Interfejs</title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
-
+ 
     
     <nav>
         <ul>
-            <li>Profil</li>
-            <li>Wyszukaj</li>
-            <li>Lista filmów</li>
-            <li>Etykiety</li>
-            <li>Pomoc</li>
-            <li>Logowanie</li>        
+        	<li id="textlogo">HitchKot</li>
+			<li><img id="logo" src="img/logo.png" alt="logo"/></li>
+            <li class="menu_symb" id="home"></li>
+            <li class="menu_symb" id="profil"></li>
+            <li class="menu_symb" id="wyszukaj"></li>
+            <li class="menu_symb" id="lista_filmow"></li>
+            <li class="menu_symb" id="pomoc"></li>
+            <li class="menu_symb" id="logowanie_in"></li>        
         </ul>
     </nav>
 </header>
@@ -30,16 +33,17 @@
 <footer>
 <nav>
         <ul>
+        	<li>Strona&ensp;główna</li>
             <li>Profil</li>
             <li>Wyszukaj</li>
-            <li>Lista filmów</li>
+            <li>Lista&ensp;filmów</li>
             <li>Etykiety</li>
             <li>Pomoc</li>
             <li>Logowanie</li>        
         </ul>
     </nav>
 </footer>
-
+	
 
 </body>
 </html>
