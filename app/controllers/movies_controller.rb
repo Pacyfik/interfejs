@@ -1,3 +1,4 @@
+﻿#encoding: utf-8
 class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json

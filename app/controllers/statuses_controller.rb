@@ -1,3 +1,4 @@
+﻿#encoding: utf-8
 class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json

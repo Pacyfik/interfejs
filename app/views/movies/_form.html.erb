@@ -1,4 +1,4 @@
-<%= form_for(@movie) do |f| %>
+﻿<%= form_for(@movie) do |f| %>
   <% if @movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -12,8 +12,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
     <%= f.label :id2 %><br />
-    <%= f.number_field :id2 %>
+    <%= f.text_field :id2 %>
+  </div>
+  <div class="field">
+    <%= f.label :overview %><br />
+    <%= f.text_area :overview %>
+  </div>
+  <div class="field">
+    <%= f.label :poster_path %><br />
+    <%= f.text_field :poster_path %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -21,23 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :year %><br />
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :overview %><br />
-    <%= f.text_area :overview %>
-  </div>
-  <div class="field">
-    <%= f.label :genre %><br />
-    <%= f.text_field :genre %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :poster_path %><br />
-    <%= f.text_field :poster_path %>
+    <%= f.text_field :year %>
   </div>
   <div class="actions">
     <%= f.submit %>

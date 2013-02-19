@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  password: MyString
+  login: MyString
   email: MyString
+  crypted_password: MyString
+  admin: false
+  persistence_token: MyString
 
 two:
-  username: MyString
-  password: MyString
+  login: MyString
   email: MyString
+  crypted_password: MyString
+  admin: false
+  persistence_token: MyString

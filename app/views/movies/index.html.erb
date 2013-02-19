@@ -1,14 +1,14 @@
-<h1>Listing movies</h1>
+﻿<h1>Listing movies</h1>
 
 <table>
   <tr>
+    <th>Country</th>
+    <th>Genre</th>
     <th>Id2</th>
+    <th>Overview</th>
+    <th>Poster path</th>
     <th>Title</th>
     <th>Year</th>
-    <th>Overview</th>
-    <th>Genre</th>
-    <th>Country</th>
-    <th>Poster path</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +16,13 @@
 
 <% @movies.each do |movie| %>
   <tr>
+    <td><%= movie.country %></td>
+    <td><%= movie.genre %></td>
     <td><%= movie.id2 %></td>
+    <td><%= movie.overview %></td>
+    <td><%= movie.poster_path %></td>
     <td><%= movie.title %></td>
     <td><%= movie.year %></td>
-    <td><%= movie.overview %></td>
-    <td><%= movie.genre %></td>
-    <td><%= movie.country %></td>
-    <td><%= movie.poster_path %></td>
     <td><%= link_to 'Show', movie %></td>
     <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
     <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

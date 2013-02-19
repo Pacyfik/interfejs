@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Interfejs</title>
@@ -54,7 +54,8 @@
             <li>Lista&ensp;filmów</li>
             <li>Etykiety</li>
             <li>Pomoc</li>
-            <li>Logowanie</li>        
+            <li><%= link_to "Logowanie", login_path %></li> 
+            <li><%= link_to "Wylogowanie", logout_path %></li>     			
         </ul>
     </nav>
 </footer>

@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  id2: 1
-  title: MyString
-  year: 1
-  overview: MyText
-  genre: MyString
   country: MyString
+  genre: MyString
+  id2: MyString
+  overview: MyText
   poster_path: MyString
+  title: MyString
+  year: MyString
 
 two:
-  id2: 1
-  title: MyString
-  year: 1
-  overview: MyText
-  genre: MyString
   country: MyString
+  genre: MyString
+  id2: MyString
+  overview: MyText
   poster_path: MyString
+  title: MyString
+  year: MyString
