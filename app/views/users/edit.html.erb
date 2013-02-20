@@ -1,4 +1,6 @@
-﻿<h1>Editing user</h1>
+﻿<h1>Chcesz zmienić dane?</h1>
+<div>(Wpisz tylko nowy adres e-mail jeśli nie chcesz zmieniać hasła.)</div>
+<br />
 
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -14,21 +16,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label 'Adres e-mail' %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label 'Hasło' %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label 'Powtórz hasło' %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Zmień dane' %>
   </div>
 <% end %>
 
+<%= link_to 'Usuń konto', @user, method: :delete, data: { confirm: 'Jesteś pewien, że chcesz usunąć konto? Akcja jest nieodwracalna!' } %>
+<br />
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

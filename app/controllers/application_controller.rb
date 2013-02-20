@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   end
   def authenticate
     if !current_user
+	  flash[:notice] = "Musisz być zalogowany, aby to zrobić."
       redirect_to new_user_session_path
     end
   end
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::Base
     if !current_user
       redirect_to new_user_session_path
     elsif !current_user.admin?
-      flash[:notice] = "You are not allowed to do that."
+      flash[:notice] = "Nie jesteś do tego uprawniony."
       redirect_to root_url
     end
   end

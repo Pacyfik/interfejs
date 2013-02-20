@@ -1,11 +1,12 @@
 ﻿class UserSessionsController < ApplicationController
+  before_filter :authenticate, :only => [:destroy]
   def new
     @user_session = UserSession.new
   end
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Successfully logged in."
+      flash[:notice] = "Zalogowano pomyślnie."
       redirect_to root_url
     else
       render :action => 'new'
@@ -14,7 +15,7 @@
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
-    flash[:notice] = "Successfully logged out."
+    flash[:notice] = "Wylogowano pomyślnie."
     redirect_to root_url
   end
 end

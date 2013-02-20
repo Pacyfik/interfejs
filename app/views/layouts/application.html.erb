@@ -48,12 +48,16 @@
 <footer>
 <nav>
         <ul>
-        	<li>Strona&ensp;główna</li>
-            <li>Profil</li>
-            <li>Wyszukaj</li>
+        	<li><%= link_to "Strona główna", root_url %></li>
+			<% if current_user %>
+				<li><%= link_to "Profil", edit_user_path(current_user) %></li>
+			<% else %>
+				<li><%= link_to 'Profil', login_path %></li>
+            <% end %>
+			<li>Wyszukaj</li>
             <li>Lista&ensp;filmów</li>
             <li>Etykiety</li>
-            <li>Pomoc</li>
+            <li><%= link_to "Pomoc", help_path %></li>
 			<% if current_user %>
 			  <li><%= link_to "Wyloguj się", logout_path %></li>    
 			<% else %>

@@ -1,5 +1,6 @@
 #encoding: utf-8
 Interfejs::Application.routes.draw do
+  #get "helps/index"
   #get "homepages/index"
   #get "user_sessions/new"
   #get "user_sessions/create"
@@ -7,18 +8,17 @@ Interfejs::Application.routes.draw do
   resources :user_sessions, :only => [:new, :create, :destroy]
 
   resources :statuses
-
-
+  
   resources :movies
-
 
   resources :tags
 
-
   resources :users
+  
   root :to => 'homepages#index'
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'help' => 'helps#index', :as => :help
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label 'Login' %><br />
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label 'Adres e-mail' %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label 'Hasło' %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label 'Powtórz hasło' %><br />
     <%= f.password_field :password_confirmation %>
   </div>
 <!--
@@ -38,6 +38,6 @@
   </div>
 -->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Zarejestruj się' %>
   </div>
 <% end %>
