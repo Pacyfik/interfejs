@@ -1,5 +1,6 @@
 #encoding: utf-8
 Interfejs::Application.routes.draw do
+  #get "homepages/index"
   #get "user_sessions/new"
   #get "user_sessions/create"
   #get "user_sessions/destroy"
@@ -15,7 +16,7 @@ Interfejs::Application.routes.draw do
 
 
   resources :users
-  root :to => 'users#index'
+  root :to => 'homepages#index'
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
   
