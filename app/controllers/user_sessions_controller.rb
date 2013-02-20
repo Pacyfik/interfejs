@@ -6,7 +6,7 @@
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Zalogowano pomyślnie."
+      flash[:notice] = "Zalogowano pomyślnie (użytkownik "+@user_session.login+")."
       redirect_to root_url
     else
       render :action => 'new'
