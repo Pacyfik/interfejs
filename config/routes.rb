@@ -1,4 +1,4 @@
-#encoding: utf-8
+﻿#encoding: utf-8
 Interfejs::Application.routes.draw do
   #get "helps/index"
   #get "homepages/index"
