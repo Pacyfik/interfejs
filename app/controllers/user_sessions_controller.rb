@@ -1,6 +1,7 @@
 ﻿#encoding: utf-8
 class UserSessionsController < ApplicationController
   before_filter :authenticate, :only => [:destroy]
+  
   def new
     @user_session = UserSession.new
   end

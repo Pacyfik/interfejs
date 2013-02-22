@@ -1,5 +1,7 @@
 ﻿#encoding: utf-8
 class TagsController < ApplicationController
+  before_filter :authenticate
+
   # GET /tags
   # GET /tags.json
   def index
@@ -45,7 +47,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
+        format.html { redirect_to @tag, notice: 'Etykieta utworzona.' }
         format.json { render json: @tag, status: :created, location: @tag }
       else
         format.html { render action: "new" }
@@ -61,7 +63,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to @tag, notice: 'Etykieta zmodyfikowana.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +79,7 @@ class TagsController < ApplicationController
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to tags_url }
+      format.html { redirect_to tags_url, notice: 'Etykieta usunięta.' }
       format.json { head :no_content }
     end
   end

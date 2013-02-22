@@ -1,4 +1,5 @@
 ﻿<p id="notice"><%= notice %></p>
+<h1>Szczegóły użytkownika</h1>
 
 <p>
   <b>Login:</b>
@@ -11,13 +12,23 @@
 </p>
 
 <p>
-  <b>Crypted password:</b>
-  <%= @user.crypted_password %>
+  <b>Admin:</b>
+  <%= @user.admin %>
 </p>
 
 <p>
-  <b>Admin:</b>
-  <%= @user.admin %>
+  <b>Utworzono:</b>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <b>Zmodyfikowano:</b>
+  <%= @user.updated_at %>
+</p>
+
+<p>
+  <b>Crypted password:</b>
+  <%= @user.crypted_password %>
 </p>
 
 <p>
@@ -25,6 +36,5 @@
   <%= @user.persistence_token %>
 </p>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<br />
+<%= link_to 'Powrót do listy użytkowników', users_path %>

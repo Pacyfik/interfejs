@@ -5,14 +5,11 @@ Interfejs::Application.routes.draw do
   #get "user_sessions/new"
   #get "user_sessions/create"
   #get "user_sessions/destroy"
-  resources :user_sessions, :only => [:new, :create, :destroy]
-
-  resources :statuses
   
   resources :movies
-
+  resources :statuses
   resources :tags
-
+  resources :user_sessions, :only => [:new, :create, :destroy]
   resources :users
   
   root :to => 'homepages#index'
