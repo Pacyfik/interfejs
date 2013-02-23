@@ -19,7 +19,13 @@
 
 <p>
   <b>Etykiety przypisane do filmu:</b>
-  <%= @status.tags.all %>
+  <% @status.tags.each do |t| %>
+    <% if @status.tags.last == t %>
+      <%= t.name %>
+	<% else %>
+	  <%= t.name %> |
+    <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Edycja', edit_status_path(@status) %> |

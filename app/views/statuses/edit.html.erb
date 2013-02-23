@@ -23,6 +23,13 @@
     <%= f.label 'Obejrzany?' %><br />
     <%= f.check_box :seen %>
   </div>
+  <div class="field">
+    <%= f.label 'Etykiety' %><br />
+    <% @tags.each do |t| %>	
+	  <%= check_box_tag "status[tag_ids][]", t.id, @status.tags.include?(t) %>
+	  <%= f.label "status[tag_ids][]", t.name %>
+	<% end %>
+  </div>  
   <div class="actions">
     <%= f.submit 'Zapisz zmiany' %>
   </div>

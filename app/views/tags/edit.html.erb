@@ -23,6 +23,13 @@
     <%= f.label 'Obrazek' %><br />
     <%= f.text_field :picture %>
   </div>
+  <div class="field">
+    <%= f.label 'Filmy (na razie id statusu, później będzie status movie title)' %><br />
+    <% @statuses.each do |s| %>	
+	  <%= check_box_tag "tag[status_ids][]", s.id, @tag.statuses.include?(s) %>
+	  <%= f.label "tag[status_ids][]", s.id %>
+	<% end %>
+  </div>  
   <div class="actions">
     <%= f.submit 'Zapisz zmiany' %>
   </div>

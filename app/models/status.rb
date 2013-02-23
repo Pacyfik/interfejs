@@ -4,6 +4,5 @@ class Status < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
   
-  attr_accessible :description, :seen, :movie_id, :user_id
-  validates_presence_of :seen
+  attr_accessible :description, :seen, :movie_id, :user_id, :tag_ids
 end

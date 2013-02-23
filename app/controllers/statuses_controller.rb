@@ -38,6 +38,7 @@ class StatusesController < ApplicationController
   # GET /statuses/1/edit
   def edit
     @status = current_user.statuses.find(params[:id])
+	@tags = current_user.tags.all
   end
 
   # POST /statuses
@@ -60,6 +61,7 @@ class StatusesController < ApplicationController
   # PUT /statuses/1
   # PUT /statuses/1.json
   def update
+    params[:status][:tag_ids] ||= []
     @status = current_user.statuses.find(params[:id])
 
     respond_to do |format|

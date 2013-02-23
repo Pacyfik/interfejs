@@ -39,6 +39,7 @@ class TagsController < ApplicationController
   # GET /tags/1/edit
   def edit
     @tag = current_user.tags.find(params[:id])
+	@statuses = current_user.statuses.all
   end
 
   # POST /tags
@@ -61,6 +62,7 @@ class TagsController < ApplicationController
   # PUT /tags/1
   # PUT /tags/1.json
   def update
+    params[:tag][:status_ids] ||= []
     @tag = current_user.tags.find(params[:id])
 
     respond_to do |format|

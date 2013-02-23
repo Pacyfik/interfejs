@@ -13,8 +13,14 @@
 </p>
 
 <p>
-  <b>Filmy z tą etykietą:</b>
-  <%= @tag.statuses.all %>
+  <b>Filmy z tą etykietą: (na razie to id statusu, bo nie mamy jeszcze zrobionego status.movie.title)</b>
+  <% @tag.statuses.each do |s| %>
+    <% if @tag.statuses.last == s %>
+      <%= s.id %>
+	<% else %>
+	  <%= s.id %> |
+    <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Edycja', edit_tag_path(@tag) %> |
