@@ -1,7 +1,7 @@
 ﻿#encoding: utf-8
 class MoviesController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :show]
-  before_filter :admin_required, :only => [:index, :destroy, :edit, :update]
+  before_filter :authenticate, :only => [:new, :create]
+  before_filter :admin_required, :only => [:index, :show, :destroy, :edit, :update]
 
   # GET /movies
   # GET /movies.json
@@ -64,7 +64,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.update_attributes(params[:movie])
-        format.html { redirect_to @movie, notice: 'Zmodyfikowano dane o filmie w bazie danych.' }
+        format.html { redirect_to @movie, notice: '???Zmodyfikowano dane o filmie w bazie danych.???' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,7 +80,7 @@ class MoviesController < ApplicationController
     @movie.destroy
 
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Usunięto film z bazy danych.' }
+      format.html { redirect_to movies_url, notice: '???Usunięto film z bazy danych.???' }
       format.json { head :no_content }
     end
   end

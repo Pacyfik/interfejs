@@ -1,11 +1,11 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>Lista filmów (hm...)</h1>
+<h1>???Lista filmów???</h1>
 
 <table>
   <tr>
-    <th>Description</th>
-    <th>Seen</th>
+    <th>Opis</th>
+    <th>Czy obejrzano</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +15,13 @@
   <tr>
     <td><%= status.description %></td>
     <td><%= status.seen %></td>
-    <td><%= link_to 'Show', status %></td>
-    <td><%= link_to 'Edit', edit_status_path(status) %></td>
-    <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <td><%= link_to 'Szczegóły', status %></td>
+    <td><%= link_to 'Edycja', edit_status_path(status) %></td>
+    <td><%= link_to 'Usuń', status, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Status', new_status_path %>
+<%= link_to 'Nowy film', new_status_path %>

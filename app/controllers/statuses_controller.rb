@@ -5,7 +5,7 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.all
+    @statuses = current_user.statuses.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-    @status = Status.find(params[:id])
+    @status = current_user.statuses.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,20 +37,21 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
-    @status = Status.find(params[:id])
+    @status = current_user.statuses.find(params[:id])
   end
 
   # POST /statuses
   # POST /statuses.json
   def create
     @status = Status.new(params[:status])
-
+	@status.user_id = current_user.id
+	
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Dodano nowy film do listy.' }
-        format.json { render json: @status, status: :created, location: @status }
+        format.html { redirect_to statuses_path, notice: 'Dodano nowy film do listy.' }
+        format.json { render json: statuses_path, status: :created, location: @status }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", notice: 'Nie dodano nowego filmu do listy.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -59,14 +60,14 @@ class StatusesController < ApplicationController
   # PUT /statuses/1
   # PUT /statuses/1.json
   def update
-    @status = Status.find(params[:id])
+    @status = current_user.statuses.find(params[:id])
 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to @status, notice: 'Zmodyfikowano dane o filmie.' }
+        format.html { redirect_to statuses_path, notice: 'Zmodyfikowano dane o filmie.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", notice: 'Nie zmodyfikowano danych o filmie.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -75,7 +76,7 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status = Status.find(params[:id])
+    @status = current_user.statuses.find(params[:id])
     @status.destroy
 
     respond_to do |format|

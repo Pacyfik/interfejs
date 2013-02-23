@@ -1,15 +1,26 @@
 ﻿<p id="notice"><%= notice %></p>
 
+<h1>???O filmie???</h1>
+
 <p>
-  <b>Description:</b>
+  <b>Opis:</b>
   <%= @status.description %>
 </p>
 
 <p>
-  <b>Seen:</b>
+  <b>Czy obejrzano:</b>
   <%= @status.seen %>
 </p>
 
+<p>
+  <b>Szczegółowe informacje o filmie:</b>
+  Tu będą informacje pobrane z @status.movie
+</p>
 
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+<p>
+  <b>Etykiety przypisane do filmu:</b>
+  <%= @status.tags.all %>
+</p>
+
+<%= link_to 'Edycja', edit_status_path(@status) %> |
+<%= link_to 'Wstecz', statuses_path %>

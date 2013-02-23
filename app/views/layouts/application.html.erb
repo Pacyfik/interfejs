@@ -55,7 +55,11 @@
 				<li><%= link_to 'Profil', login_path %></li>
             <% end %>
 			<li>Wyszukaj</li>
-            <li>Lista&ensp;filmów</li>
+			<% if current_user %>
+				<li><%= link_to "Lista filmów", statuses_path %></li>
+			<% else %>
+				<li><%= link_to 'Lista filmów', login_path %></li>
+            <% end %>
 			<% if current_user %>
 				<li><%= link_to "Etykiety", tags_path %></li>
 			<% else %>

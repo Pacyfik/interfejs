@@ -1,8 +1,33 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>Edycja filmu z listy?</h1>
+<h1>???Edycja filmu???</h1>
 
-<%= render 'form' %>
+<%= form_for(@status) do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+      <h2>Podano złe dane:</h2>
 
-<%= link_to 'Show', @status %> |
-<%= link_to 'Back', statuses_path %>
+      <ul>
+      <% @status.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'Opis' %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Obejrzany?' %><br />
+    <%= f.check_box :seen %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Zapisz zmiany' %>
+  </div>
+<% end %>
+
+<p>Trzeba tu dorzucić jeszcze dodawanie etykiet...</p>
+
+<%= link_to 'Wstecz', statuses_path %>
