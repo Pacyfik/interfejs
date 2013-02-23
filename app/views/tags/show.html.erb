@@ -1,15 +1,21 @@
 ﻿<p id="notice"><%= notice %></p>
 
+<h1>Szczegóły etykiety</h1>
+
 <p>
-  <b>Name:</b>
+  <b>Nazwa:</b>
   <%= @tag.name %>
 </p>
 
 <p>
-  <b>Picture:</b>
+  <b>Obrazek:</b>
   <%= @tag.picture %>
 </p>
 
+<p>
+  <b>Filmy z tą etykietą:</b>
+  <%= @tag.statuses.all %>
+</p>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to 'Edycja', edit_tag_path(@tag) %> |
+<%= link_to 'Wstecz', tags_path %>

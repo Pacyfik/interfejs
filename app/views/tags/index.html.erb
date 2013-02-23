@@ -1,9 +1,11 @@
-﻿<h1>Lista etykiet</h1>
+﻿<p id="notice"><%= notice %></p>
+
+<h1>Lista etykiet</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Picture</th>
+    <th>Nazwa</th>
+    <th>Obrazek</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +15,13 @@
   <tr>
     <td><%= tag.name %></td>
     <td><%= tag.picture %></td>
-    <td><%= link_to 'Show', tag %></td>
-    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-    <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <td><%= link_to 'Szczegóły', tag %></td>
+    <td><%= link_to 'Edycja', edit_tag_path(tag) %></td>
+    <td><%= link_to 'Usuń', tag, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Tag', new_tag_path %>
+<%= link_to 'Nowa etykieta', new_tag_path %>
