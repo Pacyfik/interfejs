@@ -51,7 +51,7 @@ class UsersController < ApplicationController
         format.html { redirect_to root_url, notice: 'Utworzono nowe konto użytkownika.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", notice: 'Nie utworzono nowego konta użytkownika.' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
         format.html { redirect_to edit_user_path(current_user), notice: 'Zaktualizowano dane użytkownika.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", notice: 'Nie zaktualizowano danych użytkownika.' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

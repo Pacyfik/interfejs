@@ -8,16 +8,14 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Zalogowano pomyślnie (użytkownik "+@user_session.login+")."
-      redirect_to root_url
+      redirect_to root_url, notice: "Zalogowano pomyślnie (użytkownik "+@user_session.login+")."
     else
-      render :action => 'new'
+      render :action => 'new', notice: 'Wystąpił błąd podczas logowania. Spróbuj ponownie.'
     end
   end
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
-    flash[:notice] = "Wylogowano pomyślnie."
-    redirect_to root_url
+    redirect_to root_url, notice: 'Wylogowano pomyślnie.'
   end
 end

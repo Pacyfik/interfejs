@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: '???Dodano nowy film do bazy danych???' }
         format.json { render json: @movie, status: :created, location: @movie }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", notice: '???Nie dodano nowego filmu do bazy danych???' }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +67,7 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: '???Zmodyfikowano dane o filmie w bazie danych.???' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", notice: '???Nie zmodyfikowano danych o filmie w bazie danych.???' }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end

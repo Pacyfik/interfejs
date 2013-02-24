@@ -14,16 +14,14 @@ class ApplicationController < ActionController::Base
   end
   def authenticate
     if !current_user
-	  flash[:notice] = "Musisz być zalogowany, aby to zrobić."
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, notice: 'Musisz być zalogowany, aby to zrobić.'
     end
   end
   def admin_required
     if !current_user
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, notice: 'Musisz być zalogowany, aby to zrobić.'
     elsif !current_user.admin?
-      flash[:notice] = "Nie jesteś do tego uprawniony."
-      redirect_to root_url
+      redirect_to root_url, notice: 'Nie jesteś do tego uprawniony.'
     end
   end
 end
