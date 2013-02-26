@@ -2,6 +2,30 @@
 
 <h1>New movie</h1>
 
+<%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
+	<p>
+		<%= text_field_tag :search, params[:search], :id => 'search_field' %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
+
+<% end -%>
+
+
+<% if @searchb != nil %>
+
+	<% @searchb.each do |movie| %>
+	  <tr>
+		<td><%= movie %></td><br>
+	  </tr>
+	<% end %>
+
+<% end %>
+
+
+
+<br>
+<h4> Albo wypełnij sam: </h4>
+
 <%= render 'form' %>
 
 <%= link_to 'Back', movies_path %>

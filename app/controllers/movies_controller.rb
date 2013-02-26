@@ -36,6 +36,35 @@ class MoviesController < ApplicationController
     end
   end
 
+
+
+  # search
+	
+  def search
+	require 'rubygems'
+	require 'rest_client'
+	require 'json'
+	  
+	title2find=params[:search]
+	if title2find.include? ' '
+	  title2find= title2find.gsub!(' ', '+')
+	end
+	 
+	headers  = {:accept => "application/json"}
+    response = RestClient.get "http://api.themoviedb.org/3/search/movie?api_key=8f8bdc43aaf51d09127c3eb023007a53&query=#{title2find}", headers 	
+    parsed_json = JSON.parse(response) 
+	
+	num = parsed_json.size - 1
+	titles=[]
+	for i in 0..num
+	  titles[i] = [ parsed_json["results"][i]["original_title"].to_s , parsed_json["results"][i]["release_date"].to_s , parsed_json["results"][i]["id"].to_s ]
+	end
+ 
+ 	@searchb = titles
+	  
+  end
+
+
   # GET /movies/1/edit
   def edit
     @movie = Movie.find(params[:id])
@@ -44,7 +73,29 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    @movie = Movie.new(params[:movie])
+  
+  
+	require 'rubygems'
+	require 'rest_client'
+	require 'json'
+		
+  	m_id=params[:m_id]	
+
+	headers  = {:accept => "application/json"}
+    response = RestClient.get "http://api.themoviedb.org/3/movie/#{m_id}?api_key=8f8bdc43aaf51d09127c3eb023007a53", headers 	
+	parsed_json = JSON.parse(response)
+	  
+    movie_act = Movie.new
+	movie_act.title = parsed_json["original_title"].to_s
+ 	movie_act.year = parsed_json["release_date"].to_s
+	movie_act.country = parsed_json["production_countries"].to_s
+	movie_act.genre = parsed_json["genres"].to_s
+    movie_act.overview = parsed_json["overview"].to_s
+    movie_act.poster_path = parsed_json["poster_path"].to_s
+	movie_act.id2 = parsed_json["id"].to_s
+
+  	@mid = m_id
+    @movie = movie_act
 
     respond_to do |format|
       if @movie.save

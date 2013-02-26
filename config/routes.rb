@@ -17,6 +17,8 @@ Interfejs::Application.routes.draw do
   get 'logout' => 'user_sessions#destroy', :as => :logout
   get 'help' => 'helps#index', :as => :help
   
+  match 'movies/new' => 'movies#search', :via => [:get, :post]
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
