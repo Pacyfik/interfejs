@@ -1,6 +1,6 @@
 ﻿#encoding: utf-8
 class MoviesController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create]
+  before_filter :authenticate, :only => [:new, :create, :search]
   before_filter :admin_required, :only => [:index, :show, :destroy, :edit, :update]
 
   # GET /movies
@@ -63,7 +63,7 @@ class MoviesController < ApplicationController
 		  titles[i] = [ parsed_json["results"][i]["original_title"].to_s , parsed_json["results"][i]["release_date"].to_s , parsed_json["results"][i]["id"].to_s ]
 		end
 	else
-	 	redirect_to "/movies/new", :notice => 'Nie znaleziono dopasowania'
+	 	redirect_to "/movies/new", :notice => 'Nie znaleziono takiego filmu.'
 	end
  
  	@searchb = titles	  
@@ -95,12 +95,18 @@ class MoviesController < ApplicationController
     @movie = movie_act
 
     respond_to do |format|
-      if @movie.save
-        format.html { redirect_to new_status_path, notice: '???Dodano nowy film do bazy danych???', :flash => { :movie_id => @movie.id } }
+	  if Movie.where("id2 = ?", @movie.id2).first
+	    @movie_spr = Movie.where("id2 = ?", @movie.id2).first
+	    format.html { redirect_to new_status_path, notice: 'Notice do usunięcia później: Nie trzeba dodawać nowego filmu do bazy danych (już taki jest)', :flash => { :movie_id => @movie_spr.id } }
         format.json { render json: @movie, status: :created, location: @movie }
-      else
-        format.html { render action: "new", notice: '???Nie dodano nowego filmu do bazy danych???' }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      else		
+        if @movie.save
+          format.html { redirect_to new_status_path, notice: 'Notice do usunięcia później: Dodano nowy film do bazy danych', :flash => { :movie_id => @movie.id } }
+          format.json { render json: @movie, status: :created, location: @movie }
+        else
+          format.html { render action: "new", notice: 'Nie dodano nowego filmu do bazy danych' }
+          format.json { render json: @movie.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
