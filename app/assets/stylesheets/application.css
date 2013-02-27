@@ -11,22 +11,21 @@
  *= require_self
  *= require_tree .
  */
-@charset "utf-8";
-/* CSS Document */
+
+
+
+html {
+	overflow-y: scroll;
+	background-color:#9dc9b8;
+}
 
 body {
-	background-color:#9dc9b8;
 	margin:0;
 	padding:0;
 	font-family:Arial, Helvetica, sans-serif;
 }
 
-
-
-
-
 header {
-/*	position:absolute;*/
 	margin:0;
 	padding:0;
 	width:100%;
@@ -186,14 +185,9 @@ article {
 
 
 
-
-
-
-
-
-
 footer {
 	background-color:#4d3f3e;
+	width:100%;
 	bottom:0px;
 	padding-top:2px;
 	border:5px solid #4d3f3e;
