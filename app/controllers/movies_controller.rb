@@ -53,11 +53,15 @@ class MoviesController < ApplicationController
 	headers  = {:accept => "application/json"}
     response = RestClient.get "http://api.themoviedb.org/3/search/movie?api_key=8f8bdc43aaf51d09127c3eb023007a53&query=#{title2find}", headers 	
     parsed_json = JSON.parse(response) 
-	
-	num = parsed_json.size - 1
-	titles=[]
-	for i in 0..num
-	  titles[i] = [ parsed_json["results"][i]["original_title"].to_s , parsed_json["results"][i]["release_date"].to_s , parsed_json["results"][i]["id"].to_s ]
+
+	unless parsed_json["results"].empty?
+		num = parsed_json.size - 1
+		titles=[]
+		for i in 0..num
+		  titles[i] = [ parsed_json["results"][i]["original_title"].to_s , parsed_json["results"][i]["release_date"].to_s , parsed_json["results"][i]["id"].to_s ]
+		end
+	else
+	 	redirect_to "/movies/new", :notice => 'Nie znaleziono dopasowania'
 	end
  
  	@searchb = titles

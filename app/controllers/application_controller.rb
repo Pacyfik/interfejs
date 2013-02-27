@@ -24,4 +24,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, notice: 'Nie jesteś do tego uprawniony.'
     end
   end
+  
+  
+  rescue_from RestClient::ResourceNotFound,      :with => :redirect_missing
+
+	def redirect_missing
+	  redirect_to "/movies/new", :notice => 'Nie znaleziono dopasowania'
+	end
 end
