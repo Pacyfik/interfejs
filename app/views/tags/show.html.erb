@@ -13,12 +13,12 @@
 </p>
 
 <p>
-  <b>Filmy z tą etykietą: (na razie to id statusu, bo nie mamy jeszcze zrobionego status.movie.title)</b>
+  <b>Filmy z tą etykietą:</b>
   <% @tag.statuses.each do |s| %>
     <% if @tag.statuses.last == s %>
-      <%= s.id %>
+      <%= s.movie.title %>
 	<% else %>
-	  <%= s.id %> |
+	  <%= s.movie.title %> |
     <% end %>
   <% end %>
 </p>

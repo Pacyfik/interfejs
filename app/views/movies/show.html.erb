@@ -1,40 +1,41 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Country:</b>
-  <%= @movie.country %>
-</p>
+<h1>Informacje o filmie</h1>
 
 <p>
-  <b>Genre:</b>
-  <%= @movie.genre %>
-</p>
-
-<p>
-  <b>Id2:</b>
-  <%= @movie.id2 %>
-</p>
-
-<p>
-  <b>Overview:</b>
-  <%= @movie.overview %>
-</p>
-
-<p>
-  <b>Poster path:</b>
-  <%= @movie.poster_path %>
-</p>
-
-<p>
-  <b>Title:</b>
+  <b>Tytuł:</b>
   <%= @movie.title %>
 </p>
 
 <p>
-  <b>Year:</b>
+  <b>Rok:</b>
   <%= @movie.year %>
 </p>
 
+<p>
+  <b>Kraj(e):</b>
+  <%= @movie.country %>
+</p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<p>
+  <b>Gatunek(i):</b>
+  <%= @movie.genre %>
+</p>
+
+<p>
+  <b>Ogólny opis:</b>
+  <%= @movie.overview %>
+</p>
+
+<p>
+  <b>Id2 (z themoviedb):</b>
+  <%= @movie.id2 %>
+</p>
+
+<p>
+  <b>Ścieżka do plakatu:</b>
+  <%= @movie.poster_path %>
+</p>
+
+<%= link_to 'Edycja', edit_movie_path(@movie) %> |
+<%= link_to 'Wstecz', movies_path %>

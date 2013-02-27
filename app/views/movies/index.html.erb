@@ -5,13 +5,14 @@
 <table>
   <tr>
     <th>ID</th>
+	<th>Title</th>
+    <th>Year</th>
     <th>Country</th>
     <th>Genre</th>
-    <th>Id2</th>
     <th>Overview</th>
+    <th>Id2</th>
     <th>Poster path</th>
-    <th>Title</th>
-    <th>Year</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -20,16 +21,16 @@
 <% @movies.each do |movie| %>
   <tr>
     <td><%= movie.id %></td>
-    <td><%= movie.country[0...10]  %></td>
-    <td><%= movie.genre[0...10]  %></td>
-    <td><%= movie.id2 %></td>
-    <td><%= movie.overview[0...10] %></td>
-    <td><%= movie.poster_path[0...10]  %></td>
     <td><%= movie.title %></td>
     <td><%= movie.year %></td>
-    <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <td><%= movie.country[0...10]  %></td>
+    <td><%= movie.genre[0...10]  %></td>
+    <td><%= movie.overview[0...10] %></td>
+    <td><%= movie.id2 %></td>
+    <td><%= movie.poster_path[0...10]  %></td>
+    <td><%= link_to 'Szczegóły', movie %></td>
+    <td><%= link_to 'Edycja', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Usuwanie', movie, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
   </tr>
 <% end %>
 </table>

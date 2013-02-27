@@ -1,10 +1,15 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>???O filmie???</h1>
+<h1>Informacje o filmie</h1>
 
 <p>
-  <b>Opis:</b>
-  <%= @status.description %>
+  <b>[Tu będzie plakat!]</b>
+  <%= @status.movie.poster_path %>
+</p>
+
+<p>
+  <b>Tytuł</b>
+  <%= @status.movie.title %>
 </p>
 
 <p>
@@ -13,10 +18,28 @@
 </p>
 
 <p>
-  <b>Szczegółowe informacje o filmie:</b>
-  <%= @status.movie.title %><br />
-  <%= @status.movie.overview %><br />
-  I jeszcze trochę. Ogólnie trzeba zmienić ten widok.
+  <b>Twój opis:</b>
+  <%= @status.description %>
+</p>
+
+<p>
+  <b>Rok:</b>
+  <%= @status.movie.year %>
+</p>
+
+<p>
+  <b>Kraj(e):</b>
+  <%= @status.movie.country %>
+</p>
+
+<p>
+  <b>Gatunek(i):</b>
+  <%= @status.movie.genre %>
+</p>
+
+<p>
+  <b>Opis:</b>
+  <%= @status.movie.overview %>
 </p>
 
 <p>

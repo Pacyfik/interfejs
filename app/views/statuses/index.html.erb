@@ -1,11 +1,12 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>???Lista filmów???</h1>
+<h1>Twoja lista filmów</h1>
 
 <table>
   <tr>
-    <th>Opis</th>
+    <th>Tytuł</th>
     <th>Czy obejrzano</th>
+    <th>Twój opis</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +14,9 @@
 
 <% @statuses.each do |status| %>
   <tr>
-    <td><%= status.description %></td>
+    <td><%= status.movie.title %></td>
     <td><%= status.seen %></td>
+    <td><%= status.description %></td>
     <td><%= link_to 'Szczegóły', status %></td>
     <td><%= link_to 'Edycja', edit_status_path(status) %></td>
     <td><%= link_to 'Usuń', status, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
@@ -24,4 +26,4 @@
 
 <br />
 
-<%= link_to 'Nowy film', new_status_path %>
+<%= link_to 'Dodaj nowy film', new_movie_path %>

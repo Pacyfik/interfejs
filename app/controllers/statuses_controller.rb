@@ -29,6 +29,7 @@ class StatusesController < ApplicationController
   def new
     @status = Status.new
 	@@film_id = flash[:movie_id]
+	@title = Movie.find(flash[:movie_id]).title
 
     respond_to do |format|
       format.html # new.html.erb

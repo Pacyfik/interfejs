@@ -3,6 +3,11 @@
 <h1>Szczegóły użytkownika</h1>
 
 <p>
+  <b>ID:</b>
+  <%= @user.id %>
+</p>
+
+<p>
   <b>Login:</b>
   <%= @user.login %>
 </p>
@@ -38,4 +43,4 @@
 </p>
 
 <br />
-<%= link_to 'Powrót do listy użytkowników', users_path %>
+<%= link_to 'Wstecz (do listy użytkowników)', users_path %>

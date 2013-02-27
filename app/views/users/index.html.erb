@@ -23,11 +23,11 @@
     <td><%= user.admin %></td>
     <td><%= user.crypted_password[0...10] %></td>
     <td><%= user.persistence_token[0...10] %></td>
-    <td><%= link_to 'Więcej danych', user %></td>
+    <td><%= link_to 'Szczegóły', user %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nowy użytkownik? (np. do testów)', new_user_path %>
+<%= link_to 'Nowy użytkownik (np. do testów)', new_user_path %>
