@@ -2,24 +2,26 @@
 
 <h1>Wyniki wyszukiwania</h1>
 
-<%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
-	<p>
-		<%= text_field_tag :search, params[:search].gsub("+"," "), :id => 'search_field' %>
-		<%= submit_tag "Search", :name => nil %>
-	</p>
-
-<% end -%>
-
 <% @searchb.each do |movie| %>
-    <br>
+    <br />
 	<%= form_tag :controller => 'movies', :action => 'create', :method => 'post' do -%>
 	  <tr>
 		  <td>
 		  <%= hidden_field_tag 'm_id', movie[2] %>
 		  <%= submit_tag movie[0]+' ('+movie[1]+')', :name => 'movie_t' %>
-		  </td><br>
+		  </td><br />
 	   </tr>
-	<% end -%>
+	<% end %>
+<% end %>
+
+<br />
+
+<%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
+	<p>
+		<%= text_field_tag :search, params[:search].gsub("+"," "), :id => 'search_field' %>
+		<%= submit_tag "Szukaj ponownie", :name => nil %>
+	</p>
+
 <% end %>
 
 <br />

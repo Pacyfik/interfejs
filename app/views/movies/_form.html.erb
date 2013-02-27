@@ -12,34 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :genre %><br />
-    <%= f.text_field :genre %>
-  </div>
-  <div class="field">
-    <%= f.label :id2 %><br />
-    <%= f.text_field :id2 %>
-  </div>
-  <div class="field">
-    <%= f.label :overview %><br />
-    <%= f.text_area :overview %>
-  </div>
-  <div class="field">
-    <%= f.label :poster_path %><br />
-    <%= f.text_field :poster_path %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label 'Tytuł' %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :year %><br />
+    <%= f.label 'Rok' %><br />
     <%= f.text_field :year %>
+  </div>  
+  <div class="field">
+    <%= f.label 'Kraj' %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label 'Gatunek' %><br />
+    <%= f.text_field :genre %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Dalej' %>
   </div>
 <% end %>

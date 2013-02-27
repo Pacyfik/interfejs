@@ -25,10 +25,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  rescue_from RestClient::ResourceNotFound, :with => :redirect_missing
   
-  rescue_from RestClient::ResourceNotFound,      :with => :redirect_missing
-
-	def redirect_missing
-	  redirect_to "/movies/new", :notice => 'Nie znaleziono dopasowania'
-	end
+  def redirect_missing
+    redirect_to "/movies/new", :notice => 'Nie znaleziono dopasowania'
+  end
+  
 end

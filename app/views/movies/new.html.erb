@@ -5,10 +5,10 @@
 <%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
 	<p>
 		<%= text_field_tag :search, params[:search], :id => 'search_field' %>
-		<%= submit_tag "Search", :name => nil %>
+		<%= submit_tag "Szukaj", :name => nil %>
 	</p>
 
-<% end -%>
+<% end %>
 
 <% if @searchb != nil %>
 
@@ -22,8 +22,7 @@
 
 <br />
 
-<h4> Albo wypełnij sam: </h4>
+<h4>Albo sam uzupełnij dane:</h4>
+To na razie nie działa - poprawić albo wyrzucić
 
 <%= render 'form' %>
-
-<%= link_to 'Back', movies_path %>
