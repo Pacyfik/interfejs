@@ -75,24 +75,29 @@ class MoviesController < ApplicationController
 	require 'rubygems'
 	require 'rest_client'
 	require 'json'
+	
+	unless params[:m_id].nil?	
+		m_id = params[:m_id]	
+	
+		headers  = {:accept => "application/json"}
+		response = RestClient.get "http://api.themoviedb.org/3/movie/#{m_id}?api_key=8f8bdc43aaf51d09127c3eb023007a53", headers 	
+		parsed_json = JSON.parse(response)
+		  
+		movie_act = Movie.new
+		movie_act.country = parsed_json["production_countries"][0]["name"].to_s
+		movie_act.title = parsed_json["original_title"].to_s
+		movie_act.year = parsed_json["release_date"].to_s
+		movie_act.genre = parsed_json["genres"][0]["name"].to_s
+		movie_act.overview = parsed_json["overview"].to_s
+		movie_act.poster_path = parsed_json["poster_path"].to_s
+		movie_act.id2 = parsed_json["id"].to_s
+	
+		@mid = m_id
+		@movie = movie_act
 		
-  	m_id = params[:m_id]	
-
-	headers  = {:accept => "application/json"}
-    response = RestClient.get "http://api.themoviedb.org/3/movie/#{m_id}?api_key=8f8bdc43aaf51d09127c3eb023007a53", headers 	
-	parsed_json = JSON.parse(response)
-	  
-    movie_act = Movie.new
-	movie_act.title = parsed_json["original_title"].to_s
- 	movie_act.year = parsed_json["release_date"].to_s
-	movie_act.country = parsed_json["production_countries"].to_s
-	movie_act.genre = parsed_json["genres"].to_s
-    movie_act.overview = parsed_json["overview"].to_s
-    movie_act.poster_path = parsed_json["poster_path"].to_s
-	movie_act.id2 = parsed_json["id"].to_s
-
-  	@mid = m_id
-    @movie = movie_act
+	else
+		@movie = Movie.new(params[:movie])
+	end
 
     respond_to do |format|
 	  if Movie.where("id2 = ?", @movie.id2).first
