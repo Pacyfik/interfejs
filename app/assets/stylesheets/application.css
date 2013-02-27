@@ -1,3 +1,5 @@
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -17,12 +19,14 @@
 html {
 	overflow-y: scroll;
 	background-color:#9dc9b8;
+	height: 100%;
 }
 
 body {
+	height: 100%;
 	margin:0;
 	padding:0;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:Arial, Helvetica, sans-serif
 }
 
 header {
@@ -184,16 +188,28 @@ article {
 }
 
 
-
 footer {
+	position:relative;
+	bottom:0;
 	background-color:#4d3f3e;
 	width:100%;
-	bottom:0px;
 	padding-top:2px;
 	border:5px solid #4d3f3e;
 	text-align:center;
 	text-transform:uppercase;
 	font-size:8px;
-	word-spacing:20px;
 	letter-spacing:1px;
+}
+
+footer li {
+	padding:0 10px;
+}
+
+footer a {
+	font-size:10px;
+	text-decoration:none;
+}
+
+footer a:hover {
+	color:ff474e;
 }
