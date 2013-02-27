@@ -1,5 +1,6 @@
-<h1>Listing movies</h1>
+<p id="notice"><%= notice %></p>
 
+<h1>Wyniki wyszukiwania</h1>
 
 <%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
 	<p>
@@ -8,8 +9,6 @@
 	</p>
 
 <% end -%>
-
-
 
 <% @searchb.each do |movie| %>
     <br>
@@ -23,12 +22,4 @@
 	<% end -%>
 <% end %>
 
-
-
-
-
-
-
-
 <br />
-

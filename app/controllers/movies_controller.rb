@@ -36,18 +36,20 @@ class MoviesController < ApplicationController
     end
   end
 
-
+  # GET /movies/1/edit
+  def edit
+    @movie = Movie.find(params[:id])
+  end
 
   # search
-	
   def search
 	require 'rubygems'
 	require 'rest_client'
 	require 'json'
 	  
-	title2find=params[:search]
+	title2find = params[:search]
 	if title2find.include? ' '
-	  title2find= title2find.gsub!(' ', '+')
+	  title2find = title2find.gsub!(' ', '+')
 	end
 	 
 	headers  = {:accept => "application/json"}
@@ -60,26 +62,17 @@ class MoviesController < ApplicationController
 	  titles[i] = [ parsed_json["results"][i]["original_title"].to_s , parsed_json["results"][i]["release_date"].to_s , parsed_json["results"][i]["id"].to_s ]
 	end
  
- 	@searchb = titles
-	  
+ 	@searchb = titles	  
   end
-
-
-  # GET /movies/1/edit
-  def edit
-    @movie = Movie.find(params[:id])
-  end
-
+   
   # POST /movies
   # POST /movies.json
   def create
-  
-  
 	require 'rubygems'
 	require 'rest_client'
 	require 'json'
 		
-  	m_id=params[:m_id]	
+  	m_id = params[:m_id]	
 
 	headers  = {:accept => "application/json"}
     response = RestClient.get "http://api.themoviedb.org/3/movie/#{m_id}?api_key=8f8bdc43aaf51d09127c3eb023007a53", headers 	
@@ -99,7 +92,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: '???Dodano nowy film do bazy danych???' }
+        format.html { redirect_to new_status_path, notice: '???Dodano nowy film do bazy danych???', :flash => { :movie_id => @movie.id } }
         format.json { render json: @movie, status: :created, location: @movie }
       else
         format.html { render action: "new", notice: '???Nie dodano nowego filmu do bazy danych???' }

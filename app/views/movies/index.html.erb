@@ -1,9 +1,10 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>Listing movies</h1>
+<h1>Lista filmów</h1>
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Country</th>
     <th>Genre</th>
     <th>Id2</th>
@@ -18,11 +19,12 @@
 
 <% @movies.each do |movie| %>
   <tr>
-    <td><%= movie.country %></td>
-    <td><%= movie.genre %></td>
+    <td><%= movie.id %></td>
+    <td><%= movie.country[0...10]  %></td>
+    <td><%= movie.genre[0...10]  %></td>
     <td><%= movie.id2 %></td>
-    <td><%= movie.overview %></td>
-    <td><%= movie.poster_path %></td>
+    <td><%= movie.overview[0...10] %></td>
+    <td><%= movie.poster_path[0...10]  %></td>
     <td><%= movie.title %></td>
     <td><%= movie.year %></td>
     <td><%= link_to 'Show', movie %></td>
@@ -33,5 +35,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Movie', new_movie_path %>

@@ -28,6 +28,7 @@ class StatusesController < ApplicationController
   # GET /statuses/new.json
   def new
     @status = Status.new
+	@@film_id = flash[:movie_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +46,7 @@ class StatusesController < ApplicationController
   # POST /statuses.json
   def create
     @status = Status.new(params[:status])
+	@status.movie_id = @@film_id
 	@status.user_id = current_user.id
 	
     respond_to do |format|

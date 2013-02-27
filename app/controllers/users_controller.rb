@@ -1,7 +1,7 @@
 ﻿#encoding: utf-8
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :destroy]
-  before_filter :admin_required, :only => [:show, :index]
+  before_filter :admin_required, :only => [:index, :show]
   
   # GET /users
   # GET /users.json

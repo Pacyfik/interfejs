@@ -1,6 +1,6 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<h1>New movie</h1>
+<h1>Wyszukaj film</h1>
 
 <%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
 	<p>
@@ -9,7 +9,6 @@
 	</p>
 
 <% end -%>
-
 
 <% if @searchb != nil %>
 
@@ -21,9 +20,8 @@
 
 <% end %>
 
+<br />
 
-
-<br>
 <h4> Albo wypełnij sam: </h4>
 
 <%= render 'form' %>

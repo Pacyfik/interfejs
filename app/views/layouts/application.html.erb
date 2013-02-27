@@ -39,11 +39,12 @@
     </nav>
 </header>
 
-
 <article id="main">
     <%= yield %>
 </article>
-<br><br><br>
+<br />
+<br />
+<br />
 
 <footer>
 <nav>
@@ -54,17 +55,9 @@
 			<% else %>
 				<li><%= link_to 'Profil', login_path %></li>
             <% end %>
-			<li>Wyszukaj</li>
-			<% if current_user %>
-				<li><%= link_to "Lista filmów", statuses_path %></li>
-			<% else %>
-				<li><%= link_to 'Lista filmów', login_path %></li>
-            <% end %>
-			<% if current_user %>
-				<li><%= link_to "Etykiety", tags_path %></li>
-			<% else %>
-				<li><%= link_to 'Etykiety', login_path %></li>
-            <% end %>
+			<li><%= link_to "Wyszukaj film", new_movie_path %></li>
+			<li><%= link_to "Lista filmów", statuses_path %></li>
+			<li><%= link_to "Etykiety", tags_path %></li>
             <li><%= link_to "Pomoc", help_path %></li>
 			<% if current_user %>
 			  <li><%= link_to "Wyloguj się", logout_path %></li>    
@@ -76,6 +69,5 @@
     </nav>
 </footer>
 	
-
 </body>
 </html>
