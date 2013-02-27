@@ -96,6 +96,13 @@ nav li{
 #logowanie_in {background:url(/assets/symbole_sprite.png) -179px 0px;}
 #logowanie_out {background:url(/assets/symbole_sprite.png) 0px 0px;}
 
+#home:hover  {background:url(/assets/symbole_sprite.png) 0px -60px;}
+#profil:hover {background:url(/assets/symbole_sprite.png) -90px -60px;}
+#wyszukaj:hover  {background:url(/assets/symbole_sprite.png) -60px -60px;}
+#lista_filmow:hover  {background:url(/assets/symbole_sprite.png) -30px -60px;}
+#pomoc:hover  {background:url(/assets/symbole_sprite.png) -120px -60px;}
+#logowanie_in:hover  {background:url(/assets/symbole_sprite.png) -149px -60px;}
+#logowanie_out:hover  {background:url(/assets/symbole_sprite.png) -179px -60px;}
 
 
 

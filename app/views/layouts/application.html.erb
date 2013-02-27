@@ -29,12 +29,20 @@
         <ul>
         	<li id="textlogo">HitchKot</li>
 			<li> <a href="#hist"><span id="logo" ><%= image_tag 'logo2.png' %> </span></a></li>
-            <li class="menu_symb" id="home"></li>
-            <li class="menu_symb" id="profil"></li>
-            <li class="menu_symb" id="wyszukaj"></li>
-            <li class="menu_symb" id="lista_filmow"></li>
-            <li class="menu_symb" id="pomoc"></li>
-            <li class="menu_symb" id="logowanie_in"></li>        
+            <li><%= link_to "", root_url, :id => "home", :class => "menu_symb" %></li>
+			<% if current_user %>
+				<li><%= link_to "", edit_user_path(current_user), :id => "profil", :class => "menu_symb" %></li>
+			<% else %>
+				<li><%= link_to "", login_path, :id => "profil", :class => "menu_symb" %></li>
+            <% end %>
+			<li><%= link_to "", new_movie_path, :id => "wyszukaj", :class => "menu_symb" %></li>
+			<li><%= link_to "", statuses_path, :id => "lista_filmow", :class => "menu_symb" %></li>
+            <li><%= link_to "", help_path, :id => "pomoc", :class => "menu_symb" %></li>
+			<% if current_user %>
+			  <li><%= link_to "", logout_path, :id => "logowanie_in", :class => "menu_symb" %></li>    
+			<% else %>
+			  <li><%= link_to "", login_path, :id => "logowanie_out", :class => "menu_symb" %></li> 
+			<% end %>       
         </ul>
     </nav>
 </header>
