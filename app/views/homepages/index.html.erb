@@ -1,11 +1,12 @@
 ﻿<p id="notice"><%= notice %></p>
 
 <h1>Olaboga! Chaos w filmach?</h1>
-<p>Uporządkuj swoją listę filmów.</p>
+<h3>Oglądałem ten film? Z kim go miałem zobaczyć? Jaki reżyser? </h3>
+<h2>Uporządkuj swoją listę filmów!</h2>
 <br />
-<div>[Tu będzie filmik?]</div>
+<div id="trailer"><iframe src="http://player.vimeo.com/video/45232468?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
 <br />
 <% if !current_user %>
-	<h2><%= link_to 'Zarejestruj się!', new_user_path %></h2>
+	<h2 class="red"><%= link_to 'Zarejestruj się!', new_user_path %></h2>
 	<div>i zacznij układać swoje filmy w spersonalizowane kategorie.</div>
 <% end %>

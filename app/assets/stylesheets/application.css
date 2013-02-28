@@ -94,7 +94,7 @@ nav li{
 #lista_filmow {background:url(/assets/symbole_sprite.png) -30px 0px;}
 #pomoc {background:url(/assets/symbole_sprite.png) -120px 0px;}
 #logowanie_in {background:url(/assets/symbole_sprite.png) -179px 0px;}
-#logowanie_out {background:url(/assets/symbole_sprite.png) 0px 0px;}
+#logowanie_out {background:url(/assets/symbole_sprite.png) -149px 0px;}
 
 #home:hover  {background:url(/assets/symbole_sprite.png) 0px -60px;}
 #profil:hover {background:url(/assets/symbole_sprite.png) -90px -60px;}
@@ -203,7 +203,7 @@ footer {
 	padding-top:2px;
 	border:5px solid #4d3f3e;
 	text-align:center;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-size:8px;
 	letter-spacing:1px;
 }
@@ -215,8 +215,47 @@ footer li {
 footer a {
 	font-size:10px;
 	text-decoration:none;
+	font-weight:bold;
 }
 
 footer a:hover {
-	color:ff474e;
+	color:#ff474e;
 }
+
+.form_submit {
+	background-color:#ff474e;
+	color:#ebe1d5;
+	width:215px;
+	padding:5px;
+	font-weight:bold;
+	border: 1px solid #ff474e;
+		-webkit-border-radius: 10px; /* Safari, Chrome */
+ -khtml-border-radius: 10px;    /* Konqueror */
+ -moz-border-radius: 10px; /* Firefox */
+  border-radius: 10px;
+}
+.form_submit:hover{
+	color:#fff;
+	border:1px solid #4d3f3e;
+}
+
+.search_submit {
+	background-color:#4d3f3e;
+	color:#ebe1d5;
+	padding:5px;
+	font-weight:bold;
+	border: 3px solid #4d3f3e;
+		-webkit-border-radius: 10px; /* Safari, Chrome */
+ -khtml-border-radius: 10px;    /* Konqueror */
+ -moz-border-radius: 10px; /* Firefox */
+  border-radius: 10px;
+}
+.search_submit:hover{
+	color:#ff474e;
+	border:3px solid #ff474e;
+}
+
+tr,th,td {
+	background-color:#CFE8DF;
+}
+

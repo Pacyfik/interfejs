@@ -86,7 +86,7 @@ class MoviesController < ApplicationController
 		movie_act = Movie.new
 		movie_act.country = parsed_json["production_countries"][0]["name"].to_s
 		movie_act.title = parsed_json["original_title"].to_s
-		movie_act.year = parsed_json["release_date"].to_s
+		movie_act.year=parsed_json["release_date"].to_s
 		movie_act.genre = parsed_json["genres"][0]["name"].to_s
 		movie_act.overview = parsed_json["overview"].to_s
 		movie_act.poster_path = parsed_json["poster_path"].to_s

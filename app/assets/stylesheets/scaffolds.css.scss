@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #9dc9b8;
+  color: #4d3f3e;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -19,13 +19,13 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #4d3f3e;
+  text-decoration:none;
   &:visited {
     color: #666;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #ff474e;
   }
 }
 
@@ -36,7 +36,8 @@ div {
 }
 
 #notice {
-  color: green;
+  color: #ff474e;
+  text-align:center;
 }
 
 .field_with_errors {

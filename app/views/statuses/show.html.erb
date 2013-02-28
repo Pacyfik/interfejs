@@ -3,8 +3,7 @@
 <h1>Informacje o filmie</h1>
 
 <p>
-  <b>[Tu będzie plakat!]</b>
-  <%= @status.movie.poster_path %>
+  <img src="http://cf2.imgobject.com/t/p/w185//<%= @status.movie.poster_path %>" alt="plakat"/>
 </p>
 
 <p>
@@ -24,16 +23,16 @@
 
 <p>
   <b>Rok:</b>
-  <%= @status.movie.year %>
+  <%= @status.movie.year[0..3] %>
 </p>
 
 <p>
-  <b>Kraj(e):</b>
+  <b>Kraje:</b>
   <%= @status.movie.country %>
 </p>
 
 <p>
-  <b>Gatunek(i):</b>
+  <b>Gatunki:</b>
   <%= @status.movie.genre %>
 </p>
 

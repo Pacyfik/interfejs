@@ -5,8 +5,10 @@
 <table>
   <tr>
     <th>Tytuł</th>
-    <th>Czy obejrzano</th>
-    <th>Twój opis</th>
+	<th>Rok</th>
+    <th><div class="seen"></div></th>
+	<th>Etykiety</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -14,9 +16,24 @@
 
 <% @statuses.each do |status| %>
   <tr>
-    <td><%= status.movie.title %></td>
-    <td><%= status.seen %></td>
-    <td><%= status.description %></td>
+    <td>  <%= truncate( status.movie.title , :length => 35) %></td>
+	<td><%= status.movie.year[0..3] %></td>
+	<% if status.seen %>
+    	<td><div class="seen"></div></td>
+	<% else %>
+    	<td><div class="unseen"></div></td>
+	<% end %>
+	
+	 <td>
+	 <% status.tags.each do |t| %>
+		<% if status.tags.last == t %>
+		  <%= t.name %>
+		<% else %>
+		  <%= t.name %> |
+		<% end %>
+	  <% end %>
+	</td>
+	
     <td><%= link_to 'Szczegóły', status %></td>
     <td><%= link_to 'Edycja', edit_status_path(status) %></td>
     <td><%= link_to 'Usuń', status, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
