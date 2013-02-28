@@ -13,12 +13,21 @@ Interfejs::Application.routes.draw do
   resources :tags
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :users
+
+  # Linki do menu
+  match 'profil' => 'users#edit', :as => :profil
+  match 'wyszukaj' => 'movies#new', :as => :wyszukaj
+  match 'filmy' => 'statuses#index', :as => :filmy
+  match 'etykiety' => 'tags#index', :as => :etykiety
+  match 'pomoc' => 'helps#index', :as => :pomoc
+  match 'logowanie' => 'user_sessions#new', :as => :logowanie
+  match 'wylogowanie' => 'user_sessions#destroy', :as => :wylogowanie
   
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
-  match 'help' => 'helps#index', :as => :help
-  match 'movies/new' => 'movies#search', :via => [:get, :post]
-  #match '/:login/edit' => 'users#edit'
+  # Inne linki
+  match 'movies/new' => 'movies#search', :via => [:get, :post]  
+  match 'rejestracja' => 'users#new', :as => :rejestracja
+  match 'usun_konto' => 'users#destroy', :as => :usun_konto
+  match 'etykiety/nowa' => 'tags#new', :as => :etyk_nowa
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

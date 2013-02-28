@@ -31,17 +31,17 @@
 			<li> <a href="#hist"><span id="logo" ><%= image_tag 'logo2.png' %> </span></a></li>
             <li><%= link_to "", root_url, :id => "home", :class => "menu_symb" %></li>
 			<% if current_user %>
-				<li><%= link_to "", edit_user_path(current_user), :id => "profil", :class => "menu_symb" %></li>
+				<li><%= link_to "", profil_path, :id => "profil", :class => "menu_symb" %></li>
 			<% else %>
-				<li><%= link_to "", login_path, :id => "profil", :class => "menu_symb" %></li>
+				<li><%= link_to "", logowanie_path, :id => "profil", :class => "menu_symb" %></li>
             <% end %>
-			<li><%= link_to "", new_movie_path, :id => "wyszukaj", :class => "menu_symb" %></li>
-			<li><%= link_to "", statuses_path, :id => "lista_filmow", :class => "menu_symb" %></li>
-            <li><%= link_to "", help_path, :id => "pomoc", :class => "menu_symb" %></li>
+			<li><%= link_to "", wyszukaj_path, :id => "wyszukaj", :class => "menu_symb" %></li>
+			<li><%= link_to "", filmy_path, :id => "lista_filmow", :class => "menu_symb" %></li>
+            <li><%= link_to "", pomoc_path, :id => "pomoc", :class => "menu_symb" %></li>
 			<% if current_user %>
-			  <li><%= link_to "", logout_path, :id => "logowanie_in", :class => "menu_symb" %></li>    
+			  <li><%= link_to "", wylogowanie_path, :id => "logowanie_in", :class => "menu_symb" %></li>    
 			<% else %>
-			  <li><%= link_to "", login_path, :id => "logowanie_out", :class => "menu_symb" %></li> 
+			  <li><%= link_to "", logowanie_path, :id => "logowanie_out", :class => "menu_symb" %></li> 
 			<% end %>       
         </ul>
     </nav>
@@ -58,18 +58,18 @@
         <ul>
         	<li><%= link_to "Strona główna", root_url %></li>
 			<% if current_user %>
-				<li><%= link_to "Profil", edit_user_path(current_user) %></li>
+				<li><%= link_to "Profil", profil_path %></li>
 			<% else %>
-				<li><%= link_to 'Profil', login_path %></li>
+				<li><%= link_to 'Profil', logowanie_path %></li>
             <% end %>
-			<li><%= link_to "Wyszukaj film", new_movie_path %></li>
-			<li><%= link_to "Lista filmów", statuses_path %></li>
-			<li><%= link_to "Etykiety", tags_path %></li>
-            <li><%= link_to "Pomoc", help_path %></li>
+			<li><%= link_to "Wyszukaj film", wyszukaj_path %></li>
+			<li><%= link_to "Lista filmów", filmy_path %></li>
+			<li><%= link_to "Etykiety", etykiety_path %></li>
+            <li><%= link_to "Pomoc", pomoc_path %></li>
 			<% if current_user %>
-			  <li><%= link_to "Wyloguj się", logout_path %></li>    
+			  <li><%= link_to "Wyloguj się", wylogowanie_path %></li>    
 			<% else %>
-			  <li><%= link_to "Zaloguj się", login_path %></li> 
+			  <li><%= link_to "Zaloguj się", logowanie_path %></li> 
 			<% end %>
              			
         </ul>

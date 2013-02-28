@@ -13,7 +13,11 @@
 
 <p>
   <b>Czy obejrzano:</b>
-  <%= @status.seen %>
+	<% if @status.seen %>
+    	Tak
+	<% else %>
+    	Nie
+	<% end %>
 </p>
 
 <p>
@@ -37,7 +41,7 @@
 </p>
 
 <p>
-  <b>Opis:</b>
+  <b>Ogólny opis:</b>
   <%= @status.movie.overview %>
 </p>
 
@@ -53,4 +57,4 @@
 </p>
 
 <%= link_to 'Edycja', edit_status_path(@status) %> |
-<%= link_to 'Wstecz', statuses_path %>
+<%= link_to 'Wstecz', filmy_path %>

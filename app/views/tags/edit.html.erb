@@ -24,10 +24,11 @@
     <%= f.text_field :picture %>
   </div>
   <div class="field">
-    <%= f.label 'Filmy z tą etykietą' %><br />
+    <%= f.label 'Filmy z tą etykietą:' %><br />
     <% @statuses.each do |s| %>	
 	  <%= check_box_tag "tag[status_ids][]", s.id, @tag.statuses.include?(s) %>
 	  <%= f.label "tag[status_ids][]", s.movie.title %>
+	  <br />
 	<% end %>
   </div>  
   <div class="actions">
@@ -35,4 +36,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Wstecz', tags_path %>
+<%= link_to 'Wstecz', etykiety_path %>

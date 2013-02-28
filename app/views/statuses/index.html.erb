@@ -16,16 +16,15 @@
 
 <% @statuses.each do |status| %>
   <tr>
-    <td>  <%= truncate( status.movie.title , :length => 35) %></td>
+    <td><%= truncate( status.movie.title , :length => 35) %></td>
 	<td><%= status.movie.year[0..3] %></td>
 	<% if status.seen %>
     	<td><div class="seen"></div></td>
 	<% else %>
     	<td><div class="unseen"></div></td>
 	<% end %>
-	
-	 <td>
-	 <% status.tags.each do |t| %>
+	<td>
+	  <% status.tags.each do |t| %>
 		<% if status.tags.last == t %>
 		  <%= t.name %>
 		<% else %>
@@ -43,4 +42,4 @@
 
 <br />
 
-<%= link_to 'Dodaj nowy film', new_movie_path %>
+<%= link_to 'Dodaj nowy film', wyszukaj_path %>

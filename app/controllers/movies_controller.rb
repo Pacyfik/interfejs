@@ -76,7 +76,7 @@ class MoviesController < ApplicationController
 	require 'rest_client'
 	require 'json'
 	
-	unless params[:m_id].nil?	
+	unless params[:m_id].nil?
 		m_id = params[:m_id]	
 	
 		headers  = {:accept => "application/json"}

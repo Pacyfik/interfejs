@@ -6,7 +6,16 @@
 <br />
 <div id="trailer"><iframe src="http://player.vimeo.com/video/45232468?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
 <br />
+
 <% if !current_user %>
-	<h2 class="red"><%= link_to 'Zarejestruj się!', new_user_path %></h2>
+	<h2 class="red"><%= link_to 'Zarejestruj się!', rejestracja_path %></h2>
 	<p>i zacznij układać swoje filmy w spersonalizowane kategorie.</p>
+<% end %>
+
+<% if current_user %>
+  <% if current_user.admin %>
+	<h2 class="red">Admin ;-)</h2>
+	<p><%= link_to 'Lista użytkowników', users_path %></p>
+	<p><%= link_to 'Lista filmów', movies_path %></p>
+  <% end %>
 <% end %>

@@ -8,7 +8,7 @@
 	  <tr>
 		  <td>
 		  <%= hidden_field_tag 'm_id', movie[2] %>
-		  <%= submit_tag movie[0]+' ('+movie[1]+')', :name => 'movie_t', :class => "search_submit" %>
+		  <%= submit_tag movie[0]+' ('+movie[1][0..3]+')', :name => 'movie_t', :class => "search_submit" %>
 		  </td><br />
 	   </tr>
 	<% end %>

@@ -1,7 +1,7 @@
 ﻿#encoding: utf-8
 class User < ActiveRecord::Base
-  has_many :statuses
-  has_many :tags
+  has_many :statuses, :dependent => :destroy
+  has_many :tags, :dependent => :destroy
 
   attr_accessible :crypted_password, :email, :login, :persistence_token
   attr_protected :admin
