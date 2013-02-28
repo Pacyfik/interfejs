@@ -16,9 +16,9 @@
   <b>Filmy z tą etykietą:</b>
   <% @tag.statuses.each do |s| %>
     <% if @tag.statuses.last == s %>
-      <%= s.movie.title %>
+      <%= link_to s.movie.title, s %>
 	<% else %>
-	  <%= s.movie.title %> |
+	  <%= link_to s.movie.title, s %> |
     <% end %>
   <% end %>
 </p>

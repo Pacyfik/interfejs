@@ -6,18 +6,19 @@ Interfejs::Application.routes.draw do
   #get "user_sessions/create"
   #get "user_sessions/destroy"
   
+  root :to => 'homepages#index' 
+ 
   resources :movies
   resources :statuses
   resources :tags
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :users
   
-  root :to => 'homepages#index'
-  get 'login' => 'user_sessions#new', :as => :login
-  get 'logout' => 'user_sessions#destroy', :as => :logout
-  get 'help' => 'helps#index', :as => :help
-  
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'help' => 'helps#index', :as => :help
   match 'movies/new' => 'movies#search', :via => [:get, :post]
+  #match '/:login/edit' => 'users#edit'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
