@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to edit_user_path(current_user), notice: 'Zaktualizowano dane użytkownika.' }
+        format.html { redirect_to profil_path, notice: 'Zaktualizowano dane użytkownika.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit", notice: 'Nie zaktualizowano danych użytkownika.' }

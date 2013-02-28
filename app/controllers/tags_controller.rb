@@ -50,7 +50,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to tags_path, notice: 'Utworzono etykietę.' }
+        format.html { redirect_to etykiety_path, notice: 'Utworzono etykietę.' }
         format.json { render json: tags_path, status: :created, location: @tag }
       else
         format.html { render action: "new", notice: 'Nie utworzono etykiety.' }
@@ -67,7 +67,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to tags_path, notice: 'Zmodyfikowano etykietę.' }
+        format.html { redirect_to etykiety_path, notice: 'Zmodyfikowano etykietę.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit", notice: 'Nie zmodyfikowano etykiety.' }
@@ -83,7 +83,7 @@ class TagsController < ApplicationController
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to tags_url, notice: 'Usunięto etykietę.' }
+      format.html { redirect_to etykiety_path, notice: 'Usunięto etykietę.' }
       format.json { head :no_content }
     end
   end

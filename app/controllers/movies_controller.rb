@@ -102,14 +102,14 @@ class MoviesController < ApplicationController
     respond_to do |format|
 	  if Movie.where("id2 = ?", @movie.id2).first
 	    @movie_spr = Movie.where("id2 = ?", @movie.id2).first
-	    format.html { redirect_to new_status_path, notice: 'Notice do usunięcia później: Nie trzeba dodawać nowego filmu do bazy danych (już taki jest)', :flash => { :movie_id => @movie_spr.id } }
+	    format.html { redirect_to new_status_path, :flash => { :movie_id => @movie_spr.id } }
         format.json { render json: @movie, status: :created, location: @movie }
       else		
         if @movie.save
-          format.html { redirect_to new_status_path, notice: 'Notice do usunięcia później: Dodano nowy film do bazy danych', :flash => { :movie_id => @movie.id } }
+          format.html { redirect_to new_status_path, :flash => { :movie_id => @movie.id } }
           format.json { render json: @movie, status: :created, location: @movie }
         else
-          format.html { render action: "new", notice: 'Nie dodano nowego filmu do bazy danych' }
+          format.html { render action: "new", notice: 'Nie dodano nowego filmu do bazy danych. Spróbuj ponownie.' }
           format.json { render json: @movie.errors, status: :unprocessable_entity }
         end
       end
@@ -123,10 +123,10 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.update_attributes(params[:movie])
-        format.html { redirect_to @movie, notice: '???Zmodyfikowano dane o filmie w bazie danych.???' }
+        format.html { redirect_to @movie, notice: 'Zmodyfikowano dane o filmie w bazie danych.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit", notice: '???Nie zmodyfikowano danych o filmie w bazie danych.???' }
+        format.html { render action: "edit", notice: 'Nie zmodyfikowano danych o filmie w bazie danych.' }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
@@ -139,7 +139,7 @@ class MoviesController < ApplicationController
     @movie.destroy
 
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: '???Usunięto film z bazy danych.???' }
+      format.html { redirect_to movies_url, notice: 'Usunięto film z bazy danych. Nieładnie!' }
       format.json { head :no_content }
     end
   end

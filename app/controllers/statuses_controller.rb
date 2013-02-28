@@ -52,10 +52,10 @@ class StatusesController < ApplicationController
 	
     respond_to do |format|
       if @status.save
-        format.html { redirect_to statuses_path, notice: 'Dodano nowy film do listy.' }
+        format.html { redirect_to filmy_path, notice: 'Dodano nowy film do listy.' }
         format.json { render json: statuses_path, status: :created, location: @status }
       else
-        format.html { render action: "new", notice: 'Nie dodano nowego filmu do listy.'  }
+        format.html { render action: "new", notice: 'Nie dodano nowego filmu do listy. Spróbuj ponownie.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -69,10 +69,10 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to statuses_path, notice: 'Zmodyfikowano dane o filmie.' }
+        format.html { redirect_to filmy_path, notice: 'Zmodyfikowano dane o filmie.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit", notice: 'Nie zmodyfikowano danych o filmie.'  }
+        format.html { render action: "edit", notice: 'Nie zmodyfikowano danych o filmie. Spróbuj ponownie.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -85,7 +85,7 @@ class StatusesController < ApplicationController
     @status.destroy
 
     respond_to do |format|
-      format.html { redirect_to statuses_url, notice: 'Usunięto film z listy.' }
+      format.html { redirect_to filmy_url, notice: 'Usunięto film z listy.' }
       format.json { head :no_content }
     end
   end
