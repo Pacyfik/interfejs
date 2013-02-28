@@ -21,9 +21,6 @@ pre {
 a {
   color: #4d3f3e;
   text-decoration:none;
-  &:visited {
-    color: #666;
-  }
   &:hover {
     color: #ff474e;
   }
@@ -67,4 +64,9 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+footer a{
+  color: #ecdfd9;
+  text-decoration:none;
 }
