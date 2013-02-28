@@ -82,12 +82,26 @@ class MoviesController < ApplicationController
 		headers  = {:accept => "application/json"}
 		response = RestClient.get "http://api.themoviedb.org/3/movie/#{m_id}?api_key=8f8bdc43aaf51d09127c3eb023007a53", headers 	
 		parsed_json = JSON.parse(response)
-		  
+		  	
 		movie_act = Movie.new
-		movie_act.country = parsed_json["production_countries"][0]["name"].to_s
+		
+		empty_check=%w[release_date overview poster_path]
+		empty_check.each {|e| if parsed_json[e].empty? then parsed_json[e]="brak danych" end }
+		
+		if parsed_json["production_countries"].empty?
+			movie_act.country="brak danych"
+		else
+			country = parsed_json["production_countries"].map {|e| e["name"]+" "}
+			movie_act.country=country[0].to_s
+		end
 		movie_act.title = parsed_json["original_title"].to_s
 		movie_act.year=parsed_json["release_date"].to_s
-		movie_act.genre = parsed_json["genres"][0]["name"].to_s
+		if parsed_json["genres"].empty?
+			movie_act.genre = "brak danych"
+		else
+			genre=parsed_json["genres"].map {|e| e["name"]+" "}
+			movie_act.genre=genre[0].to_s
+		end
 		movie_act.overview = parsed_json["overview"].to_s
 		movie_act.poster_path = parsed_json["poster_path"].to_s
 		movie_act.id2 = parsed_json["id"].to_s
@@ -100,7 +114,7 @@ class MoviesController < ApplicationController
 	end
 
     respond_to do |format|
-	  if Movie.where("id2 = ?", @movie.id2).first
+	   if Movie.where("id2 = ?", @movie.id2).first
 	    @movie_spr = Movie.where("id2 = ?", @movie.id2).first
 	    format.html { redirect_to new_status_path, notice: 'Notice do usunięcia później: Nie trzeba dodawać nowego filmu do bazy danych (już taki jest)', :flash => { :movie_id => @movie_spr.id } }
         format.json { render json: @movie, status: :created, location: @movie }
