@@ -9,9 +9,7 @@
     <th>Year</th>
     <th>Country</th>
     <th>Genre</th>
-    <th>Overview</th>
     <th>Id2</th>
-    <th>Poster path</th>
 
     <th></th>
     <th></th>
@@ -25,9 +23,7 @@
     <td><%= movie.year %></td>
     <td><%= movie.country[0...10]  %></td>
     <td><%= movie.genre[0...10]  %></td>
-    <td><%= movie.overview[0...10] %></td>
     <td><%= movie.id2 %></td>
-    <td><%= movie.poster_path[0...10]  %></td>
     <td><%= link_to 'Szczegóły', movie %></td>
     <td><%= link_to 'Edycja', edit_movie_path(movie) %></td>
     <td><%= link_to 'Usuwanie', movie, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>

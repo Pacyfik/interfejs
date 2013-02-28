@@ -20,6 +20,7 @@
 <%= form_tag :controller => 'movies', :action => 'search', :method => 'get' do -%>
 	<p>
 		<%= text_field_tag :search, params[:search].gsub("+"," "), :id => 'search_field' %>
+		<br /><br />
 		<%= submit_tag "Szukaj ponownie", :name => nil, :class => "form_submit" %>
 	</p>
 <% end %>

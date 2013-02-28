@@ -29,9 +29,12 @@
     <%= f.label 'Powtórz nowe hasło' %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <br />
   <div class="actions">
     <%= f.submit 'Zmień dane', :class => "form_submit" %>
   </div>
 <% end %>
+
+<br />
 
 <%= link_to 'Usuń konto', @user, method: :delete, data: { confirm: 'Jesteś pewien, że chcesz usunąć konto? Już go nie odzyskasz!' } %>
