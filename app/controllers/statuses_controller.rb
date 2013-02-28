@@ -5,7 +5,18 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = current_user.statuses.all
+
+	if params[:filter]
+	  if params[:filter] == "seen"
+	    @statuses = current_user.statuses.where(:seen => true)
+	  elsif params[:filter] == "unseen"
+	    @statuses = current_user.statuses.where(:seen => false)
+	  else
+	    @statuses = current_user.statuses.all
+	  end
+	else
+	  @statuses = current_user.statuses.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

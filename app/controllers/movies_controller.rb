@@ -86,7 +86,7 @@ class MoviesController < ApplicationController
 		movie_act = Movie.new
 		
 		empty_check=%w[release_date overview poster_path]
-		empty_check.each {|e| if parsed_json[e].empty? then parsed_json[e]="brak danych" end }
+		empty_check.each {|e| if parsed_json[e].nil? then parsed_json[e]="brak danych" end }
 		
 		if parsed_json["production_countries"].empty?
 			movie_act.country="brak danych"

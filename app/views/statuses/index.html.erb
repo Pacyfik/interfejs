@@ -2,6 +2,12 @@
 
 <h1>Twoja lista filmów</h1>
 
+<p>Filtr:
+<%= link_to 'Obejrzane', filmy_path(:filter => "seen") %> |
+<%= link_to 'Nieobejrzane', filmy_path(:filter => "unseen") %> |
+<%= link_to 'Wszystkie', filmy_path %>
+</p>
+
 <table>
   <tr>
     <th>Tytuł</th>
