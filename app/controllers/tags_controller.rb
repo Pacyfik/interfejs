@@ -5,7 +5,18 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = current_user.tags.all
+
+ 	if params[:order]
+	  if params[:order] == "asc"
+        @tags = current_user.tags.order("name ASC")
+	  elsif params[:order] == "desc"
+	    @tags = current_user.tags.order("name DESC")
+	  else
+	    @tags = current_user.tags.all
+	  end
+	else
+	  @tags = current_user.tags.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

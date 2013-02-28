@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <th>Nazwa</th>
+    <th>Nazwa <%= link_to '&darr;'.html_safe, etykiety_path(:order => "asc") %> <%= link_to '&uarr;'.html_safe, etykiety_path(:order => "desc") %></th>
     <th>Obrazek</th>
     <th></th>
     <th></th>
