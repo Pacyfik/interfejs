@@ -56,5 +56,6 @@
   <% end %>
 </p>
 
-<%= link_to 'Edycja', edit_status_path(@status) %> |
+<%= link_to 'Edycja', edit_status_path(@status) %> |  
+<%= link_to 'Usuń', @status, method: :delete, data: { confirm: 'Jesteś pewien?' } %> |  
 <%= link_to 'Wstecz', filmy_path %>

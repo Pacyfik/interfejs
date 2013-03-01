@@ -1,6 +1,7 @@
-﻿<p id="notice"><%= notice %></p>
-
+﻿<div class="lista_tabela">
 <h1>Twoja lista filmów</h1>
+
+<p id="notice"><%= notice %></p>
 
 <p>Filtr:
 <%= link_to 'Obejrzane', filmy_path(:filter => "seen") %> |
@@ -14,37 +15,32 @@
 	<th>Rok <%= link_to '&darr;'.html_safe, filmy_path(:order => "y_asc") %> <%= link_to '&uarr;'.html_safe, filmy_path(:order => "y_desc") %></th>
     <th><div class="seen"></div></th>
 	<th>Etykiety</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Usuń</th>
   </tr>
 
 <% @statuses.each do |status| %>
   <tr>
-    <td><%= truncate(status.movie.title, :length => 35) %></td>
-    <td><%= status.movie.year[0..3] %></td>
-    <% if status.seen %>
-      <td><div class="seen"></div></td>
-    <% else %>
-      <td><div class="unseen"></div></td>
-    <% end %>
-    <td>
-      <% status.tags.each do |t| %>
-        <% if status.tags.last == t %>
-          <%= t.name %>
-        <% else %>
-          <%= t.name %> |
-        <% end %>
-      <% end %>
-    </td>
+    <td><%= link_to truncate(status.movie.title , :length => 35), status %></td>
+	<td><%= status.movie.year[0..3] %></td>
+	<% if status.seen %>
+    	<td><div class="seen"></div></td>
+	<% else %>
+    	<td><div class="unseen"></div></td>
+	<% end %>
+	<td>
+	  <% status.tags.each do |t| %>
+		<% if status.tags.last == t %>
+		  <%= t.name %>
+		<% else %>
+		  <%= t.name %> |
+		<% end %>
+	  <% end %>
+	</td>
 	
-    <td><%= link_to 'Szczegóły', status %></td>
-    <td><%= link_to 'Edycja', edit_status_path(status) %></td>
-    <td><%= link_to 'Usuń', status, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <td><%= link_to '', status, method: :delete, data: { confirm: 'Jesteś pewien?' }, :class => "x" %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'Dodaj nowy film', wyszukaj_path %>
+<h3><%= link_to 'Dodaj nowy film', wyszukaj_path %></h3>
+</div>

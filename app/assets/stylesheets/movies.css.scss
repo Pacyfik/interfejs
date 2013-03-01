@@ -12,3 +12,29 @@
 	height:30px;
 	background:url(/assets/symbole_sprite.png) -298px -60px;
 }
+
+
+.search_submit {
+	background-color:#4d3f3e;
+	color:#ebe1d5;
+	padding:5px;
+	font-weight:bold;
+	border: 3px solid #4d3f3e;
+ -webkit-border-radius: 10px; /* Safari, Chrome */
+ -khtml-border-radius: 10px;    /* Konqueror */
+ -moz-border-radius: 10px; /* Firefox */
+  border-radius: 10px;
+}
+.search_submit:hover{
+	color:#fff;
+	border:3px solid #ff474e;
+}
+
+#search_field {
+	width:202px;
+	padding:4px;
+-webkit-border-radius: 10px; /* Safari, Chrome */
+ -khtml-border-radius: 10px;    /* Konqueror */
+ -moz-border-radius: 10px; /* Firefox */
+  border-radius: 10px;
+}
