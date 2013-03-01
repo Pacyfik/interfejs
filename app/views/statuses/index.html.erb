@@ -30,9 +30,9 @@
 	<td>
 	  <% status.tags.each do |t| %>
 		<% if status.tags.last == t %>
-		  <%= t.name %>
+		  <%= link_to t.name, t %>
 		<% else %>
-		  <%= t.name %> |
+		  <%= link_to t.name, t %> |
 		<% end %>
 	  <% end %>
 	</td>
