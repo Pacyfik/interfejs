@@ -1,7 +1,11 @@
-﻿<p id="notice"><%= notice %></p>
+﻿<div class="lista_tabela">
 
 <h1> Dodaj film do bazy!</h1>
-<p>
+<div class="szczegoly">
+
+<p id="notice"><%= notice %></p>
+
+<p class="poster">
 <% if @film.poster_path == nil || @film.poster_path == "brak danych" %>
   <%= image_tag 'brakdanych.png' %> 
 <% else %>
@@ -34,3 +38,5 @@
 <hr>
 
 <%= render 'form' %>
+
+</div>

@@ -15,9 +15,9 @@
     <div id="hist_in">
     	
     	<div id="hist1">
-        	<p> HISTORIA KRYJĄCA SIĘ ZA STRONĄ HITCHKOT</p>
+        	<%= image_tag 'historia.png' %>
             <br>
-	        <p><a href="#">schowaj opis</a></p>
+	        <p id="histho"><a href="#">schowaj opis</a></p>
         </div>
 	    <div id="hist2"><span id="rog" ><%= image_tag 'rog.png' %> </span></div>
     	<div id="hist3">Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</div>
@@ -29,19 +29,19 @@
         <ul>
         	<li id="textlogo">HitchKot</li>
 			<li> <a href="#hist"><span id="logo" ><%= image_tag 'logo2.png' %> </span></a></li>
-            <li><%= link_to "", root_url, :id => "home", :class => "menu_symb" %></li>
+            <li id="m_home"><%= link_to "", root_url, :id => "home", :class => "menu_symb" %></li>
 			<% if current_user %>
-				<li><%= link_to "", profil_path, :id => "profil", :class => "menu_symb" %></li>
+				<li id="m_profil"><%= link_to "", profil_path, :id => "profil", :class => "menu_symb" %></li>
 			<% else %>
-				<li><%= link_to "", logowanie_path, :id => "profil", :class => "menu_symb" %></li>
+				<li id="m_profil"><%= link_to "", logowanie_path, :id => "profil", :class => "menu_symb" %></li>
             <% end %>
-			<li><%= link_to "", wyszukaj_path, :id => "wyszukaj", :class => "menu_symb" %></li>
-			<li><%= link_to "", filmy_path, :id => "lista_filmow", :class => "menu_symb" %></li>
-            <li><%= link_to "", pomoc_path, :id => "pomoc", :class => "menu_symb" %></li>
+			<li id="m_wyszukaj"><%= link_to "", wyszukaj_path, :id => "wyszukaj", :class => "menu_symb" %></li>
+			<li id="m_lista"><%= link_to "", filmy_path, :id => "lista_filmow", :class => "menu_symb" %></li>
+            <li id="m_pomoc"><%= link_to "", pomoc_path, :id => "pomoc", :class => "menu_symb" %></li>
 			<% if current_user %>
-			  <li><%= link_to "", wylogowanie_path, :id => "logowanie_in", :class => "menu_symb" %></li>    
+			  <li id="m_wyloguj"><%= link_to "", wylogowanie_path, :id => "logowanie_in", :class => "menu_symb" %></li>    
 			<% else %>
-			  <li><%= link_to "", logowanie_path, :id => "logowanie_out", :class => "menu_symb" %></li> 
+			  <li id="m_zaloguj"><%= link_to "", logowanie_path, :id => "logowanie_out", :class => "menu_symb" %></li> 
 			<% end %>       
         </ul>
     </nav>

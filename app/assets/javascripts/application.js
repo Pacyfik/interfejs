@@ -22,5 +22,62 @@ $(document).ready(function(){
    		$('.guzik').toggleClass('guzikk');
 
 	});
+	
+	$('#m_home').hover(function () {
+    		$('#textlogo').html('Home');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_profil').hover(function () {
+    		$('#textlogo').html('Profil');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_wyszukaj').hover(function () {
+    		$('#textlogo').html('Wyszukaj');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_lista').hover(function () {
+    		$('#textlogo').html('Lista filmów');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_pomoc').hover(function () {
+    		$('#textlogo').html('Pomoc');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_wyloguj').hover(function () {
+    		$('#textlogo').html('Wyloguj się');
+  		},
+	 	function () {
+    		$('#textlogo').html('HitchKot');
+	  	}
+	);
+	
+		$('#m_zaloguj').hover(function () {
+    		$('#textlogo').html('Home');
+  		},
+	 	function () {
+    		$('#textlogo').html('Zaloguj się');
+	  	}
+	);
+	
 });
 		

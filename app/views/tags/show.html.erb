@@ -1,6 +1,9 @@
-﻿<p id="notice"><%= notice %></p>
+﻿<div class="lista_tabela">
 
 <h1>Szczegóły etykiety</h1>
+
+<div class="szczegoly2">
+<p id="notice"><%= notice %></p>
 
 <p>
   <b>Nazwa:</b>
@@ -23,5 +26,12 @@
   <% end %>
 </p>
 
+</div>
+
+<br>
+<b>
 <%= link_to 'Edycja', edit_tag_path(@tag) %> |
 <%= link_to 'Wstecz', etykiety_path %>
+</b>
+<br><br>
+</div>
