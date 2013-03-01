@@ -249,11 +249,14 @@ input, textarea {
     -o-border-radius: 10px; /* Opera */
   	border-radius: 10px;
   	border: 1px solid #4d3f3e; 
+	margin:auto;
 }
 
 textarea {
 	width:420px;
-	height:210px;
+	height:105px;
+	position:relative;
+	margin-left:-85px;
 }
 
 tr {

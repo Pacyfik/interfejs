@@ -24,6 +24,8 @@
  -khtml-border-radius: 10px;    /* Konqueror */
  -moz-border-radius: 10px; /* Firefox */
   border-radius: 10px;
+	width:auto;
+	min-width:220px;
 }
 .search_submit:hover{
 	color:#fff;
