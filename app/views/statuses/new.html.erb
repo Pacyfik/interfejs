@@ -1,9 +1,12 @@
 ﻿<p id="notice"><%= notice %></p>
 
 <h1> Dodaj film do bazy!</h1>
-
 <p>
+<% if @film.poster_path == nil || @film.poster_path == "brak danych" %>
+  <%= image_tag 'brakdanych.png' %> 
+<% else %>
   <img src="http://cf2.imgobject.com/t/p/w185//<%= @film.poster_path %>" />
+<% end %>
 </p>
 
 <p><b>Tytuł filmu: </b><%= @film.title %></p>
