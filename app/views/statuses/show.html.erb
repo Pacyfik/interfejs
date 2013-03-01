@@ -3,7 +3,11 @@
 <h1>Informacje o filmie</h1>
 
 <p>
-  <img src="http://cf2.imgobject.com/t/p/w185//<%= @status.movie.poster_path %>" />
+<% if @film.poster_path == nil || @film.poster_path == "brak danych" %>
+  <%= image_tag 'brakdanych.png' %> 
+<% else %>
+  <img src="http://cf2.imgobject.com/t/p/w185//<%= @film.poster_path %>" />
+<% end %>
 </p>
 
 <p>
