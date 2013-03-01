@@ -114,14 +114,14 @@ class MoviesController < ApplicationController
 	end
 
     respond_to do |format|
-	   if Movie.where("id2 = ?", @movie.id2).first
-	     if current_user.statuses.where(:movie_id => Movie.where("id2 = ?", @movie.id2).first.id)
-		   format.html { redirect_to wyszukaj_path, notice: 'Masz już ten film na liście.' }
-		 else
-	       @movie_spr = Movie.where("id2 = ?", @movie.id2).first
-	       format.html { redirect_to new_status_path, :flash => { :movie_id => @movie_spr.id } }
-           format.json { render json: @movie, status: :created, location: @movie }
-		 end
+	  if Movie.where("id2 = ?", @movie.id2).first
+	    if current_user.statuses.exists?(:movie_id => Movie.where("id2 = ?", @movie.id2).first.id)
+		  format.html { redirect_to wyszukaj_path, notice: 'Masz już ten film na liście.' }
+		else
+	      @movie_spr = Movie.where("id2 = ?", @movie.id2).first
+	      format.html { redirect_to new_status_path, :flash => { :movie_id => @movie_spr.id } }
+          format.json { render json: @movie, status: :created, location: @movie }
+		end
       else		
         if @movie.save
           format.html { redirect_to new_status_path, :flash => { :movie_id => @movie.id } }
