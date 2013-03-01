@@ -1,21 +1,31 @@
 ﻿#encoding: utf-8
 class StatusesController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate 
 
   # GET /statuses
   # GET /statuses.json
   def index
 
+  	@statuses = current_user.statuses.all(:include => :movie, :order => "movies.title ASC")
+  
+    if params[:order]
+      if params[:order] == "t_asc"
+        @statuses = current_user.statuses.all(:include => :movie, :order => "movies.title ASC")
+      elsif params[:order] == "t_desc"
+        @statuses = current_user.statuses.all(:include => :movie, :order => "movies.title DESC")
+      elsif params[:order] == "y_asc"
+        @statuses = current_user.statuses.all(:include => :movie, :order => "movies.year ASC")		
+      elsif params[:order] == "y_desc"
+        @statuses = current_user.statuses.all(:include => :movie, :order => "movies.year DESC")			
+      end
+    end
+	
     if params[:filter]
       if params[:filter] == "seen"
         @statuses = current_user.statuses.where(:seen => true)
-     elsif params[:filter] == "unseen"
+      elsif params[:filter] == "unseen"
 	    @statuses = current_user.statuses.where(:seen => false)
-	  else
-	    @statuses = current_user.statuses.all
       end
-    else
-     @statuses = current_user.statuses.all
     end
 
     respond_to do |format|
