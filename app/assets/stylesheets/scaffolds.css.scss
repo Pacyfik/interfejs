@@ -66,7 +66,17 @@ div {
   }
 }
 
-footer a{
+footer a, .lista_tabela a{
   color: #ecdfd9;
   text-decoration:none;
+  &:hover {
+    color: #ff474e;
+  }		
+}
+
+.lista_tabela table a{
+  	color: #4d3f3e;
+	&:hover {
+		color: #ff474e;
+	}
 }

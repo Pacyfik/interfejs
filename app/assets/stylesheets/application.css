@@ -46,13 +46,13 @@ header nav {
 	margin-top:-5px;
 	margin-left:auto;
 	margin-right:auto;
-	
-	-webkit-border-radius: 0px 0px 10px 10px; /* Safari, Chrome */
- -khtml-border-radius: 0px 0px 10px 10px;    /* Konqueror */
- -moz-border-radius: 0px 0px 10px 10px; /* Firefox */
-  border-radius: 0px 0px 10px 10px;
-  border: 5px solid #ecdfd9;
-  border-top:0;
+	-o-border-radius: 0px 0px 30px 30px; 
+	-webkit-border-radius: 0px 0px 30px 30px; /* Safari, Chrome */
+    -khtml-border-radius: 0px 0px 30px 30px;    /* Konqueror */
+    -moz-border-radius: 0px 0px 30px 30px; /* Firefox */
+	border-radius: 0px 0px 30px 30px;
+	border: 5px solid #ecdfd9;
+	border-top:0;
 }
 
 nav ul{
@@ -90,8 +90,8 @@ nav li{
 
 #home {background:url(/assets/symbole_sprite.png) 0px 0px;}
 #profil {background:url(/assets/symbole_sprite.png) -90px 0px;}
-#wyszukaj {background:url(/assets/symbole_sprite.png) -60px 0px;}
-#lista_filmow {background:url(/assets/symbole_sprite.png) -30px 0px;}
+#wyszukaj {background:url(/assets/symbole_sprite.png) -60px -30px;}
+#lista_filmow {background:url(/assets/symbole_sprite.png) -30px -30px;}
 #pomoc {background:url(/assets/symbole_sprite.png) -120px 0px;}
 #logowanie_in {background:url(/assets/symbole_sprite.png) -179px 0px;}
 #logowanie_out {background:url(/assets/symbole_sprite.png) -149px 0px;}
@@ -138,6 +138,7 @@ article {
 	-webkit-transition: margin-top 0.5s ease-in-out;
 	-moz-transition: margin-top 0.5s ease-in-out;
 	-o-transition: margin-top 0.5s ease-in-out;
+	-khtml-transition: margin-top 0.5s ease-in-out;
 }
 
 #hist:target {
@@ -196,14 +197,13 @@ article {
 
 
 footer {
-	position:relative;
+	position:fixed;
 	bottom:0;
 	background-color:#4d3f3e;
 	width:100%;
 	padding-top:2px;
 	border:5px solid #4d3f3e;
 	text-align:center;
-	/*text-transform:uppercase;*/
 	font-size:8px;
 	letter-spacing:1px;
 }
@@ -228,31 +228,32 @@ footer a:hover {
 	width:215px;
 	padding:5px;
 	font-weight:bold;
-	border: 1px solid #ff474e;
-		-webkit-border-radius: 10px; /* Safari, Chrome */
- -khtml-border-radius: 10px;    /* Konqueror */
- -moz-border-radius: 10px; /* Firefox */
-  border-radius: 10px;
+	border: 1px solid #ff474e; 
+    -webkit-border-radius: 10px; /* Safari, Chrome */
+    -khtml-border-radius: 10px;    /* Konqueror */
+    -moz-border-radius: 10px; /* Firefox */
+    -o-border-radius: 10px; /* Opera */
+  	border-radius: 10px;
 }
 .form_submit:hover{
 	color:#fff;
 	border:1px solid #4d3f3e;
 }
 
-.search_submit {
-	background-color:#4d3f3e;
-	color:#ebe1d5;
-	padding:5px;
-	font-weight:bold;
-	border: 3px solid #4d3f3e;
-		-webkit-border-radius: 10px; /* Safari, Chrome */
- -khtml-border-radius: 10px;    /* Konqueror */
- -moz-border-radius: 10px; /* Firefox */
-  border-radius: 10px;
+input, textarea {
+	width:210px;
+	padding:3px;
+    -webkit-border-radius: 10px; /* Safari, Chrome */
+    -khtml-border-radius: 10px;    /* Konqueror */
+    -moz-border-radius: 10px; /* Firefox */
+    -o-border-radius: 10px; /* Opera */
+  	border-radius: 10px;
+  	border: 1px solid #4d3f3e; 
 }
-.search_submit:hover{
-	color:#ff474e;
-	border:3px solid #ff474e;
+
+textarea {
+	width:420px;
+	height:210px;
 }
 
 tr {
@@ -260,3 +261,64 @@ tr {
 }
 
 
+
+
+.wysun {
+	display:none;
+}
+
+.guzik
+{
+    width:30px;
+    height:30px;
+	background:url(/assets/symbole_sprite.png) -358px -60px;
+	margin:auto;
+}
+
+.guzikk
+{
+    width:30px;
+    height:30px;
+	background:url(/assets/symbole_sprite.png) -327px -60px;
+	margin:auto;
+}
+
+
+  
+.lista_tabela {
+    -webkit-border-radius: 30px; /* Safari, Chrome */
+    -khtml-border-radius: 30px;    /* Konqueror */
+    -moz-border-radius: 30px; /* Firefox */
+    -o-border-radius: 30px; /* Opera */
+	background-color:#665754;
+	color:#ecdfd9;
+	border:5px solid #ecdfd9;
+	width:520px;
+	margin:auto;
+}
+
+table {
+	width:100%;
+	background-color: #E3E1D5;
+	color:#4d3f3e;
+	text-align:left;
+	border: 4px solid #665754;
+}
+
+tr {
+	border: 1px solid #4d3f3e;
+	background-color: #ebe1d5;
+}
+
+td,th {
+	padding-left:5px;
+}
+
+.x {
+	display:block;
+	width:34px;
+	height:20px;
+	background:url(/assets/x.png);
+	background-position:center;
+	background-repeat:no-repeat;
+}
