@@ -1,13 +1,33 @@
 ﻿<p id="notice"><%= notice %></p>
 
+<h1> Dodaj film do bazy!</h1>
+
+<p>
+  <img src="http://cf2.imgobject.com/t/p/w185//<%= @film.poster_path %>" />
+</p>
+
+<p><b>Tytuł filmu: </b><%= @film.title %></p>
+
 <p>
   <b>Rok:</b>
   <%= @film.year[0..3] %>
 </p>
 
+<p>
+  <b>Kraje:</b>
+  <%= @film.country %>
+</p>
 
+<p>
+  <b>Gatunki:</b>
+  <%= @film.genre %>
+</p>
 
-<h1>Dodaj własny opis filmu</h1>
-<p>Dodajesz film "<%= @film.title %>".</p>
+<p>
+  <b>Ogólny opis:</b>
+  <%= @film.overview %>
+</p>
+
+<hr>
 
 <%= render 'form' %>
