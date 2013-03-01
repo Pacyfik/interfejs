@@ -55,8 +55,8 @@ class MoviesController < ApplicationController
 	headers  = {:accept => "application/json"}
     response = RestClient.get "http://api.themoviedb.org/3/search/movie?api_key=8f8bdc43aaf51d09127c3eb023007a53&query=#{title2find}", headers 	
     parsed_json = JSON.parse(response) 
-
-	unless parsed_json["results"].empty?
+	
+	unless parsed_json["results"].empty? 
 		num = parsed_json.size - 1
 		titles=[]
 		for i in 0..num

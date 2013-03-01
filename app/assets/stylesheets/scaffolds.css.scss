@@ -74,7 +74,7 @@ footer a, .lista_tabela a{
   }		
 }
 
-.lista_tabela table a{
+.lista_tabela table a, .szczegoly a, .szczegoly2 a{
   	color: #4d3f3e;
 	&:hover {
 		color: #ff474e;

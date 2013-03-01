@@ -6,16 +6,16 @@
 
 <table>
   <tr>
-    <th>Nazwa <%= link_to '&darr;'.html_safe, etykiety_path(:order => "asc") %> <%= link_to '&uarr;'.html_safe, etykiety_path(:order => "desc") %></th>
-    <th>Obrazek</th>
+    <th class="n_len">Nazwa <%= link_to '&darr;'.html_safe, etykiety_path(:order => "asc") %> <%= link_to '&uarr;'.html_safe, etykiety_path(:order => "desc") %></th>
+    <th class="u_len">Pic</th>
     <th>Filmy</th>
-    <th>Usuń</th>
+    <th></th>
   </tr>
 
 <% @tags.each do |tag| %>
   <tr>
-    <td><%= link_to tag.name, tag %></td>
-    <td><%= tag.picture %></td>
+    <td><%= link_to truncate(tag.name , :length => 25), tag %></td>
+    <td class="u_len"><%= tag.picture %></td>
     <td><% tag.statuses.each do |s| %>
     <% if tag.statuses.last == s %>
       <%= link_to s.movie.title, s %>
@@ -23,7 +23,7 @@
 	  <%= link_to s.movie.title, s %> |
     <% end %>
   <% end %></td>
-    <td><%= link_to '', tag, method: :delete, data: { confirm: 'Jesteś pewien?' }, :class => "x"  %></td>
+    <td class="u_len"><%= link_to '', tag, method: :delete, data: { confirm: 'Jesteś pewien?' }, :class => "x"  %></td>
   </tr>
 <% end %>
 </table>

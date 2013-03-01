@@ -40,3 +40,36 @@
  -moz-border-radius: 10px; /* Firefox */
   border-radius: 10px;
 }
+
+.t_len {
+	width:230px;
+}
+
+.y_len {
+	width:50px;
+	text-align: center;
+}
+
+.s_len {
+	width:35px;
+}
+
+.u_len {
+	width:20px;
+	text-align: center;
+}
+
+.n_len {
+	width:180px;
+}
+
+.szczegoly, .szczegoly2 {
+	width:512px;
+	background-color: #E3E1D5;
+	color:#4d3f3e;
+	border: 4px solid #665754;
+}
+
+.szczegoly:first-of-type {
+	min-height: 315px;
+}

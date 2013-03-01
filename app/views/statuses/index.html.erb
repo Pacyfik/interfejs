@@ -11,23 +11,23 @@
 
 <table>
   <tr>
-    <th>Tytuł <%= link_to '&darr;'.html_safe, filmy_path(:order => "t_asc") %> <%= link_to '&uarr;'.html_safe, filmy_path(:order => "t_desc") %></th>
-	<th>Rok <%= link_to '&darr;'.html_safe, filmy_path(:order => "y_asc") %> <%= link_to '&uarr;'.html_safe, filmy_path(:order => "y_desc") %></th>
-    <th><div class="seen"></div></th>
-	<th>Etykiety</th>
-    <th>Usuń</th>
+    <th class="t_len">Tytuł <%= link_to '&darr;'.html_safe, filmy_path(:order => "t_asc") %> <%= link_to '&uarr;'.html_safe, filmy_path(:order => "t_desc") %></th>
+	<th class="y_len">Rok <%= link_to '&darr;'.html_safe, filmy_path(:order => "y_asc") %> <%= link_to '&uarr;'.html_safe, filmy_path(:order => "y_desc") %></th>
+    <th class="s_len"><div class="seen"></div></th>
+	<th class="e_len">Etykiety</th>
+    <th class="u_len"></th>
   </tr>
 
 <% @statuses.each do |status| %>
   <tr>
-    <td><%= link_to truncate(status.movie.title , :length => 35), status %></td>
-	<td><%= status.movie.year[0..3] %></td>
+    <td class="t_len"><%= link_to truncate(status.movie.title , :length => 32), status %></td>
+	<td class="y_len"><%= status.movie.year[0..3] %></td>
 	<% if status.seen %>
-    	<td><div class="seen"></div></td>
+    	<td class="s_len"><div class="seen"></div></td>
 	<% else %>
-    	<td><div class="unseen"></div></td>
+    	<td class="s_len"><div class="unseen"></div></td>
 	<% end %>
-	<td>
+	<td class="e_len">
 	  <% status.tags.each do |t| %>
 		<% if status.tags.last == t %>
 		  <%= link_to t.name, t %>
@@ -37,7 +37,7 @@
 	  <% end %>
 	</td>
 	
-    <td><%= link_to '', status, method: :delete, data: { confirm: 'Jesteś pewien?' }, :class => "x" %></td>
+    <td class="u_len"><%= link_to '', status, method: :delete, data: { confirm: 'Jesteś pewien?' }, :class => "x" %></td>
   </tr>
 <% end %>
 </table>
